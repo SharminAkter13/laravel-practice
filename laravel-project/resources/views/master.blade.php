@@ -1,5 +1,12 @@
 @include('layouts.header')
-@include('layouts.navbar')
-@include('layouts.sidebar')
-@yield('pages')
-@include('layouts.footer')
+@include('layouts.sidebar') 
+
+<div class="main-content"> 
+
+    @include('layouts.navbar')
+
+    @yield('page') 
+
+    @include('layouts.footer')
+
+</div>

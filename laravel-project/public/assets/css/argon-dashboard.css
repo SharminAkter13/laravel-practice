@@ -4442,6 +4442,15 @@ input[type="button"].btn-block {
     transition: none;
   }
 }
+#navbar-main .text-uppercase {
+    /* Use pure white to ensure visibility */
+    color: #fff !important;
+}
+
+/* Alternative targeting the h4 class on the anchor */
+#navbar-main .h4 {
+    color: #fff !important;
+}
 
 .nav {
   display: flex;
