@@ -147,13 +147,7 @@
             </a>
           </li>
         </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item active active-pro">
-            <a class="nav-link" href="./examples/upgrade.html">
-              <i class="ni ni-send text-dark"></i> Upgrade to PRO
-            </a>
-          </li>
-        </ul>
+        
       </div>
     </div>
   </nav>

@@ -13,3 +13,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/master', function () {
+    return view('master');
+});
