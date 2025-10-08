@@ -25,3 +25,5 @@ Route::get('/profile', function () {
     return view('pages.profile');
 });
 
+Route::get('/category', [CategoryController::class, 'index']);
+
