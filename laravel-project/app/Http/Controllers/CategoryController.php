@@ -2,9 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
-   return view('/categpry');
+     public function index()
+     
+    {
+        $cats = Category::all();
+        return view('pages.categories',compact('cats'));
+    }
+
+    
+       public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+
+        Category::create($request->only([
+            'name',
+            'amount',
+            'price',
+        ]));
+        // dd($request->all());
+
+
+        return Redirect::to('/category');
+    }
+
+    
+    public function destroy(Request $request)
+    {
+        $product = Category::find($request->catagory_id);
+        $product->delete();
+        return Redirect::to('/category');
+}
+
 }

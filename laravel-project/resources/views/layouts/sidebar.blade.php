@@ -98,10 +98,21 @@
             <a class="nav-link " href="./examples/icons.html">
               <i class="ni ni-planet text-blue"></i> User
             </a>
+            
+    
+    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+        <li>
+            <a class="dropdown-item" href="/add-user">Add User</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="/manage-user">Manage User</a>
+        </li>
+    </ul>
+
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+            <a class="nav-link " href="/category">
+              <i class="ni ni-pin-3 text-orange"></i> Category
             </a>
           </li>
           <li class="nav-item">
