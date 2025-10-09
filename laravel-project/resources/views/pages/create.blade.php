@@ -1,5 +1,6 @@
 @extends('master')
 @section('page')
+<div class="card bg-primary ">
 
       <div class="text-center">
 
@@ -8,7 +9,7 @@
       </div>
 
       <div class="container bg-secondary m-5 p-5 rounded">
-        <form method="POST" action="{{ route('store') }}">
+        <form method="POST" action="{{ route('store') }}" class="p-2 m-5">
           @csrf
             <div class="mb-3">
               <label for="detailsa" class="form-label">Name</label>
@@ -28,5 +29,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
       </div>
- 
+ </div>
 @endsection
