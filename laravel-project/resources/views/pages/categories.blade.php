@@ -1,16 +1,17 @@
 @extends('master')
 @section('page')
 <div class="card">
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
   <span class="mask bg-gradient-default opacity-8"></span>
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
-      <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white"> Categories List</h1>
+    <div class="col-lg-7 col-md-10 text-center">
+        <h1 class="display-2 text-white text-center"> Categories List</h1>
         <a href="{{ route('create') }}" class="btn btn-info">Add Categories</a>
-      </div>
+    </div>
+</div>
     </div>
   </div>
 </div>

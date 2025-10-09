@@ -27,7 +27,7 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/category', [CategoryController::class, 'index']);
-Route::get('create', [CategoryController::class, 'create'])->name('create');
+Route::get('/create', [CategoryController::class, 'create'])->name('create');
 
 Route::post('store', [CategoryController::class, 'store'])->name('store');
 
