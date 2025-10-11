@@ -10,10 +10,6 @@ class HomeController extends Controller
     {
         return view('pages.home');
     }
-     public function update($catagory_id)
-    {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
-    }
+     
 
 }
