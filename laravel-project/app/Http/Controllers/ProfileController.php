@@ -11,14 +11,14 @@ class ProfileController extends Controller
         public function index()
      
     {
-        $cats = Profile::all();
-        return view('pages.categories',compact('cats'));
+        $profile = Profile::all();
+        return view('pages.profile.profiles',compact('profile'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-profile');
     }
 
     public function store(Request $request)
@@ -38,9 +38,16 @@ class ProfileController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Profile::find($request->catagory_id);
+        $product = Profile::find($request->profile_id);
         $product->delete();
         return Redirect::to('/Profile');
 }
+
+
+ public function update($profile_id)
+    {
+        $profile = Profile::find($profile_id);
+        return view('pages.profile.edit-profile',compact('profile'));
+    }
 
 }

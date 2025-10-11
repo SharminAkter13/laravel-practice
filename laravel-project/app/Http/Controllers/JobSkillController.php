@@ -43,4 +43,11 @@ class JobSkillController extends Controller
         return Redirect::to('/JobSkill');
 }
 
+ public function update($catagory_id)
+    {
+        $cat = Category::find($catagory_id);
+        return view('pages.category.edit',compact('cat'));
+    }
+
+
 }

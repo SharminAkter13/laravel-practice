@@ -9,14 +9,14 @@ class ResumeController extends Controller
          public function index()
      
     {
-        $cats = Resume::all();
-        return view('pages.categories',compact('cats'));
+        $resume = Resume::all();
+        return view('pages.resume.resumes',compact('resume'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-resume');
     }
 
     public function store(Request $request)
@@ -36,9 +36,16 @@ class ResumeController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Resume::find($request->catagory_id);
+        $product = Resume::find($request->resume_id);
         $product->delete();
         return Redirect::to('/Resume');
 }
+
+
+ public function update($resume_id)
+    {
+        $cat = Resume::find($resume_id);
+        return view('pages.Resume.edit-resume',compact('resume'));
+    }
 
 }

@@ -41,4 +41,11 @@ class CandidateController extends Controller
         return Redirect::to('/Candidate');
 }
 
+ public function update($catagory_id)
+    {
+        $cat = Category::find($catagory_id);
+        return view('pages.category.edit',compact('cat'));
+    }
+
+
 }
