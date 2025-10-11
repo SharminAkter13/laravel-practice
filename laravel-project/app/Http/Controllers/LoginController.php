@@ -45,8 +45,8 @@ class LoginController extends Controller
 
  public function update($catagory_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $log = Login::find($catagory_id);
+        return view('pages.login.edit-login',compact('log'));
     }
 
 

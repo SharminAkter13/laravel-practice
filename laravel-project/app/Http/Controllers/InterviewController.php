@@ -10,14 +10,14 @@ class InterviewController extends Controller
          public function index()
      
     {
-        $cats = Interview::all();
-        return view('pages.categories',compact('cats'));
+        $int = Interview::all();
+        return view('pages.interview.interviews',compact('int'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-int');
     }
 
     public function store(Request $request)
@@ -37,15 +37,15 @@ class InterviewController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Interview::find($request->catagory_id);
+        $product = Interview::find($request->interview_id);
         $product->delete();
         return Redirect::to('/Interview');
 }
 
- public function update($catagory_id)
+ public function update($interview_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $int = Interview::find($interview_id);
+        return view('pages.interview.edit-int',compact('int'));
     }
 
 

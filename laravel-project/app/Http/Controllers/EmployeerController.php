@@ -11,14 +11,14 @@ class EmployeerController extends Controller
          public function index()
      
     {
-        $cats = Employeer::all();
-        return view('pages.categories',compact('cats'));
+        $emp = Employeer::all();
+        return view('pages.employeer.employeers',compact('emp'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-emp');
     }
 
     public function store(Request $request)
@@ -38,15 +38,15 @@ class EmployeerController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Employeer::find($request->catagory_id);
+        $product = Employeer::find($request->employeer_id);
         $product->delete();
         return Redirect::to('/Employeer');
 }
 
- public function update($catagory_id)
+ public function update($employeer_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $emp = Employeer::find($employeer_id);
+        return view('pages.employeer.edit-emp',compact('emp'));
     }
 
 

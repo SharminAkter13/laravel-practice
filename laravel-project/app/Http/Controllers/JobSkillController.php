@@ -11,14 +11,14 @@ class JobSkillController extends Controller
          public function index()
      
     {
-        $cats = JobSkill::all();
-        return view('pages.categories',compact('cats'));
+        $js = JobSkill::all();
+        return view('pages.job-skill.job-skills',compact('js'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-js');
     }
 
     public function store(Request $request)
@@ -38,15 +38,15 @@ class JobSkillController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = JobSkill::find($request->catagory_id);
+        $product = JobSkill::find($request->js_id);
         $product->delete();
         return Redirect::to('/JobSkill');
 }
 
- public function update($catagory_id)
+ public function update($js_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $js = JobSkill::find($js_id);
+        return view('pages.job-skill.edit-js',compact('js'));
     }
 
 

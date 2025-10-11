@@ -9,14 +9,14 @@ class CandidateController extends Controller
          public function index()
      
     {
-        $cats = Candidate::all();
-        return view('pages.categories',compact('cats'));
+        $cnd = Candidate::all();
+        return view('pages.candidate.candidates',compact('cnd'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-cnd');
     }
 
     public function store(Request $request)
@@ -36,15 +36,15 @@ class CandidateController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Candidate::find($request->catagory_id);
+        $product = Candidate::find($request->candidate_id);
         $product->delete();
         return Redirect::to('/Candidate');
 }
 
- public function update($catagory_id)
+ public function update($candidate_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $cnd = Candidate::find($candidate_id);
+        return view('pages.candidate.edit-cnd',compact('cnd'));
     }
 
 

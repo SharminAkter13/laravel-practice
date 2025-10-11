@@ -11,14 +11,14 @@ class JobController extends Controller
         public function index()
      
     {
-        $cats = Job::all();
-        return view('pages.categories',compact('cats'));
+        $job = Job::all();
+        return view('pages.job.jobs',compact('job'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.create-job');
     }
 
     public function store(Request $request)
@@ -38,15 +38,15 @@ class JobController extends Controller
     
     public function destroy(Request $request)
     {
-        $product = Job::find($request->catagory_id);
+        $product = Job::find($request->job_id);
         $product->delete();
         return Redirect::to('/Job');
 }
 
- public function update($catagory_id)
+ public function update($job_id)
     {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
+        $job = Job::find($job_id);
+        return view('pages.job.edit-job',compact('job'));
     }
 
 
