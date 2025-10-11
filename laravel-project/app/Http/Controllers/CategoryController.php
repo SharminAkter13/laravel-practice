@@ -47,5 +47,15 @@ class CategoryController extends Controller
         $cat = Category::find($catagory_id);
         return view('pages.category.edit',compact('cat'));
     }
+    
+       public function editStore(Request $request)
+    {
+       $cat = Category::find($request->catagory_id);
+        $cat->name = $request->name;
+        $cat->amount = $request->amount;
+        $cat->price = $request->price;
+        $cat->save();
+        return Redirect::to('/category');
+    }
 
 }

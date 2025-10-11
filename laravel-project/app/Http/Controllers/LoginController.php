@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Login;
+// use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -11,43 +11,42 @@ class LoginController extends Controller
          public function index()
      
     {
-        $cats = Login::all();
-        return view('pages.categories',compact('cats'));
+        return view('login');
     }
 
     
-       public function create()
-    {
-        return view('pages.create');
-    }
+//        public function create()
+//     {
+//         return view('pages.create');
+//     }
 
-    public function store(Request $request)
-    {
+//     public function store(Request $request)
+//     {
 
-        Login::create($request->only([
-            'name',
-            'amount',
-            'price',
-        ]));
-        // dd($request->all());
+//         Login::create($request->only([
+//             'name',
+//             'amount',
+//             'price',
+//         ]));
+//         // dd($request->all());
 
 
-        return Redirect::to('/Login');
-    }
+//         return Redirect::to('/Login');
+//     }
 
     
-    public function destroy(Request $request)
-    {
-        $product = Login::find($request->catagory_id);
-        $product->delete();
-        return Redirect::to('/Login');
-}
+//     public function destroy(Request $request)
+//     {
+//         $product = Login::find($request->catagory_id);
+//         $product->delete();
+//         return Redirect::to('/Login');
+// }
 
- public function update($catagory_id)
-    {
-        $log = Login::find($catagory_id);
-        return view('pages.login.edit-login',compact('log'));
-    }
+//  public function update($catagory_id)
+//     {
+//         $log = Login::find($catagory_id);
+//         return view('pages.login.edit-login',compact('log'));
+//     }
 
 
 }
