@@ -12,13 +12,13 @@ class CategoryController extends Controller
      
     {
         $cats = Category::all();
-        return view('pages.categories',compact('cats'));
+        return view('pages.category.categories',compact('cats'));
     }
 
     
        public function create()
     {
-        return view('pages.create');
+        return view('pages.category.create');
     }
 
     public function store(Request $request)
@@ -42,5 +42,10 @@ class CategoryController extends Controller
         $product->delete();
         return Redirect::to('/category');
 }
+ public function update($catagory_id)
+    {
+        $cat = Category::find($catagory_id);
+        return view('pages.category.edit',compact('cat'));
+    }
 
 }
