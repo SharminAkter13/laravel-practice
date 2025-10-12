@@ -71,4 +71,11 @@ Route::delete('delete', [candidateController::class, 'destroy'])->name('delete')
 
 // """""""",,,,,,,"""""""" Resume""""""",,,,,,"""""""""""""
 
-Route::resource('resume', ResumeController::class);
+
+Route::get('/resumes', [ResumeController::class, 'index'])->name('resumes.resume');
+Route::get('/resumes/create', [ResumeController::class, 'create'])->name('resumes.create');
+Route::post('/resumes/store', [ResumeController::class, 'store'])->name('resumes.store');
+Route::get('/resumes/{id}', [ResumeController::class, 'show'])->name('resumes.show');
+Route::get('/resumes/{id}/edit', [ResumeController::class, 'edit'])->name('resumes.edit');
+Route::post('/resumes/{id}/update', [ResumeController::class, 'update'])->name('resumes.update');
+Route::delete('/resumes/{id}', [ResumeController::class, 'destroy'])->name('resumes.destroy');

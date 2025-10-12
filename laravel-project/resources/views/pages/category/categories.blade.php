@@ -16,46 +16,46 @@
   </div>
 </div>
 
-<div>
+  <div>
 
-<table class="table table-praimary table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Price</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($cats as $cat)
-    <tr>
-      <th scope="row">{{$loop->iteration}}</th>
-      <td>{{ $cat->name }}</td>
-      <td>{{ $cat->amount }}</td>
-      <td>{{ $cat->price }}</td>
-       <td>
-                    <div class="btn-group">
-                      <a href="{{ route('edit', $cat->id) }}">
-                        <button class="btn btn-md btn-success me-1 p-1"><i class="bi bi-pencil-square"></i></button>
-                      </a>
+    <table class="table table-praimary table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($cats as $cat)
+        <tr>
+          <th scope="row">{{$loop->iteration}}</th>
+          <td>{{ $cat->name }}</td>
+          <td>{{ $cat->amount }}</td>
+          <td>{{ $cat->price }}</td>
+          <td>
+                        <div class="btn-group">
+                          <a href="{{ route('edit', $cat->id) }}">
+                            <button class="btn btn-md btn-success me-1 p-1"><i class="bi bi-pencil-square"></i></button>
+                          </a>
 
-                      <form action="{{route('delete')}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <input type="text" name="catagory_id" value="{{ $cat->id }}" hidden>
-                      <button class="btn btn-md btn-danger  p-1"><i class="bi bi-trash3-fill"></i></button>
-                </form>
+                          <form action="{{route('delete')}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input type="text" name="catagory_id" value="{{ $cat->id }}" hidden>
+                          <button class="btn btn-md btn-danger  p-1"><i class="bi bi-trash3-fill"></i></button>
+                    </form>
 
 
-                    </div>
-                </td>
-    </tr>
-    @endforeach
-    
-  </tbody>
-</table>
-</div>
+                        </div>
+                    </td>
+        </tr>
+        @endforeach
+        
+      </tbody>
+    </table>
+  </div>
 </div>
 @endsection

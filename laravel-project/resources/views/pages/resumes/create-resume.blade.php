@@ -1,37 +1,210 @@
 @extends('master')
 
 @section('page')
-<div class="card bg-primary-subtle p-5 w-100">
-  <!-- Full-width background container -->
-  <div class="bg-info-subtle p-5 rounded w-100 mt-5">
-    
-    <!-- Centered form inside full-width container -->
-    <div class="d-flex justify-content-center">
-      <form method="POST" action="{{ route('userStore') }}" class="w-100" style="max-width: 500px;">
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-success text-white">
+      <h4 class="mb-0">Create Resume</h4>
+    </div>
+
+    <div class="card-body">
+<form action="{{ route('resumes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <h1 class="text-center mb-4">Add Users</h1>
 
-        <div class="mb-3">
-          <label class="form-label">Name</label>
-          <input type="text" name="name" class="form-control" required>
+        <!-- ========== BASIC INFO ========== -->
+        <h5 class="mb-3 text-primary">Basic Information</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Profession Title</label>
+            <input type="text" name="profession_title" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Location</label>
+            <input type="text" name="location" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Website</label>
+            <input type="text" name="web" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Hourly Rate</label>
+            <input type="text" name="pre_hour" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Age</label>
+            <input type="number" name="age" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Cover Image</label>
+            <input type="file" name="cover_image" class="form-control">
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-control" required>
-        </div>
+        <hr>
 
-        <div class="mb-3">
-          <label class="form-label">PASSWORD</label>
-          <input type="number" name="password" class="form-control" required>
+        <!-- ========== EDUCATION ========== -->
+        <h5 class="text-primary">🎓 Education</h5>
+        <div id="educationFields">
+          <div class="edu-item border rounded p-3 mb-3 bg-light">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <input type="text" name="educations[0][degree]" placeholder="Degree" class="form-control">
+              </div>
+              <div class="col-md-4">
+                <input type="text" name="educations[0][field_of_study]" placeholder="Field of Study" class="form-control">
+              </div>
+              <div class="col-md-3">
+                <input type="text" name="educations[0][school]" placeholder="School" class="form-control">
+              </div>
+              <div class="col-md-1 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm removeEdu w-100">×</button>
+              </div>
+            </div>
+          </div>
         </div>
+        <button type="button" id="addEducation" class="btn btn-outline-primary btn-sm mb-3">+ Add Education</button>
 
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary form-control">Submit</button>
+        <hr>
+
+        <!-- ========== EXPERIENCE ========== -->
+        <h5 class="text-primary">💼 Experience</h5>
+        <div id="experienceFields">
+          <div class="exp-item border rounded p-3 mb-3 bg-light">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <input type="text" name="experiences[0][company_name]" placeholder="Company" class="form-control">
+              </div>
+              <div class="col-md-5">
+                <input type="text" name="experiences[0][title]" placeholder="Title" class="form-control">
+              </div>
+              <div class="col-md-2 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm removeExp w-100">×</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="addExperience" class="btn btn-outline-primary btn-sm mb-3">+ Add Experience</button>
+
+        <hr>
+
+        <!-- ========== SKILLS ========== -->
+        <h5 class="text-primary">🧠 Skills</h5>
+        <div id="skillFields">
+          <div class="skill-item border rounded p-3 mb-3 bg-light">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <input type="text" name="skills[0][skill_name]" placeholder="Skill name" class="form-control">
+              </div>
+              <div class="col-md-5">
+                <input type="number" name="skills[0][skill_percent]" placeholder="Percent" class="form-control">
+              </div>
+              <div class="col-md-2 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm removeSkill w-100">×</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="addSkill" class="btn btn-outline-primary btn-sm mb-3">+ Add Skill</button>
+
+        <hr>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-success">Save Resume</button>
         </div>
       </form>
     </div>
-
   </div>
 </div>
+@endsection
+
+@section('scripts')
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  let eduCount = 1, expCount = 1, skillCount = 1;
+
+  // Education Add
+  document.getElementById('addEducation').addEventListener('click', function () {
+    const container = document.getElementById('educationFields');
+    const newEdu = `
+      <div class="edu-item border rounded p-3 mb-3 bg-light">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <input type="text" name="educations[${eduCount}][degree]" placeholder="Degree" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="educations[${eduCount}][field_of_study]" placeholder="Field of Study" class="form-control">
+          </div>
+          <div class="col-md-3">
+            <input type="text" name="educations[${eduCount}][school]" placeholder="School" class="form-control">
+          </div>
+          <div class="col-md-1 d-flex align-items-center">
+            <button type="button" class="btn btn-danger btn-sm removeEdu w-100">×</button>
+          </div>
+        </div>
+      </div>`;
+    container.insertAdjacentHTML('beforeend', newEdu);
+    eduCount++;
+  });
+
+  // Experience Add
+  document.getElementById('addExperience').addEventListener('click', function () {
+    const container = document.getElementById('experienceFields');
+    const newExp = `
+      <div class="exp-item border rounded p-3 mb-3 bg-light">
+        <div class="row g-3">
+          <div class="col-md-5">
+            <input type="text" name="experiences[${expCount}][company_name]" placeholder="Company" class="form-control">
+          </div>
+          <div class="col-md-5">
+            <input type="text" name="experiences[${expCount}][title]" placeholder="Title" class="form-control">
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            <button type="button" class="btn btn-danger btn-sm removeExp w-100">×</button>
+          </div>
+        </div>
+      </div>`;
+    container.insertAdjacentHTML('beforeend', newExp);
+    expCount++;
+  });
+
+  // Skills Add
+  document.getElementById('addSkill').addEventListener('click', function () {
+    const container = document.getElementById('skillFields');
+    const newSkill = `
+      <div class="skill-item border rounded p-3 mb-3 bg-light">
+        <div class="row g-3">
+          <div class="col-md-5">
+            <input type="text" name="skills[${skillCount}][skill_name]" placeholder="Skill name" class="form-control">
+          </div>
+          <div class="col-md-5">
+            <input type="number" name="skills[${skillCount}][skill_percent]" placeholder="Percent" class="form-control">
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            <button type="button" class="btn btn-danger btn-sm removeSkill w-100">×</button>
+          </div>
+        </div>
+      </div>`;
+    container.insertAdjacentHTML('beforeend', newSkill);
+    skillCount++;
+  });
+
+  // Remove buttons (delegated)
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('removeEdu')) e.target.closest('.edu-item').remove();
+    if (e.target.classList.contains('removeExp')) e.target.closest('.exp-item').remove();
+    if (e.target.classList.contains('removeSkill')) e.target.closest('.skill-item').remove();
+  });
+});
+</script>
+
 @endsection
