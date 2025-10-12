@@ -107,37 +107,37 @@
           </li>
 
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/candidates">
               <i class="ni ni-single-02 text-yellow"></i> Candidates
             </a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/employeer">
               <i class="ni ni-single-02 text-yellow"></i> Employeers
             </a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/resume">
               <i class="ni ni-single-02 text-yellow"></i> Resume
             </a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="./job">
               <i class="ni ni-single-02 text-yellow"></i> Job
             </a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/job-skill">
               <i class="ni ni-single-02 text-yellow"></i> Job Skills
             </a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/interviews">
               <i class="ni ni-single-02 text-yellow"></i> Interviews
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+            <a class="nav-link " href="/profile">
               <i class="ni ni-single-02 text-yellow"></i> User profile
             </a>
           </li>
@@ -152,7 +152,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/register.html">
+            <a class="nav-link" href="/register">
               <i class="ni ni-circle-08 text-pink"></i> Register
             </a>
           </li>

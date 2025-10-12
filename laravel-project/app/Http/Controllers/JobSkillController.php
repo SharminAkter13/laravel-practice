@@ -49,5 +49,13 @@ class JobSkillController extends Controller
         return view('pages.job-skill.edit-js',compact('js'));
     }
 
-
+       public function editStore(Request $request)
+    {
+       $js = JobSkill::find($request->js_id);
+        $js->name = $request->name;
+        $js->amount = $request->amount;
+        $js->price = $request->price;
+        $js->save();
+        return Redirect::to('/job-skill');
+    }
 }

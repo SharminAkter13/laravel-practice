@@ -19,9 +19,9 @@
 <div>
 
 
-<table class="table table-striped">
+<table class="table table-praimary table-hover">
 
-</table>
+
       <thead>
     <tr>
       <th scope="col">#</th>
@@ -62,7 +62,7 @@
     
   </tbody>
 
-
+</table>
 
 </div>
 </div>

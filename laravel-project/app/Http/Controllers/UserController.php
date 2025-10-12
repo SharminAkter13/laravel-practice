@@ -48,4 +48,15 @@ class UserController extends Controller
         $u = User::find($user_id);
         return view('pages.user.edit-user',compact('u'));
     }
+
+    public function editStore(Request $request)
+    {
+       $u = User::find($request->user_id);
+        $u->name = $request->name;
+        $u->email = $request->email;
+        $u->password = $request->password;
+        $u->save();
+        return Redirect::to('/user');
+    }
+
 }

@@ -49,5 +49,13 @@ class JobController extends Controller
         return view('pages.job.edit-job',compact('job'));
     }
 
-
+       public function editStore(Request $request)
+    {
+       $job = Job::find($request->job_id);
+        $job->name = $request->name;
+        $job->amount = $request->amount;
+        $job->price = $request->price;
+        $job->save();
+        return Redirect::to('/job');
+    }
 }

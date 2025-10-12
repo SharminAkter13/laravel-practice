@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -54,4 +55,16 @@ Route::post('editStoreU', [UserController::class, 'editStoreU'])->name('editStor
 
 Route::delete('delete', [UserController::class, 'destroy'])->name('delete');
 
+
+// """"""",,,,,,""""' Candidate"""""",,,,,"""""""
+
+Route::get('/candidate', [candidateController::class, 'index']);
+Route::get('/candidateCreate', [candidateController::class, 'create'])->name('candidateCreate');
+
+Route::post('candidateStore', [CandidateController::class, 'store'])->name('candidateStore');
+Route::get('candidateEdit/{candidate_id}', [candidateController::class, 'update'])->name('userEdit');
+
+Route::post('editStoreC', [candidateController::class, 'editStoreC'])->name('editStoreC');
+
+Route::delete('delete', [candidateController::class, 'destroy'])->name('delete');
 

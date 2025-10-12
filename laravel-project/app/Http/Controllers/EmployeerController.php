@@ -50,4 +50,14 @@ class EmployeerController extends Controller
     }
 
 
+    public function editStore(Request $request)
+    {
+       $emp = Employeer::find($request->employeer_id);
+        $emp->name = $request->name;
+        $emp->amount = $request->amount;
+        $emp->price = $request->price;
+        $emp->save();
+        return Redirect::to('/employeer');
+    }
+
 }

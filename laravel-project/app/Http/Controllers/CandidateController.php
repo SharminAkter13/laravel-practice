@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CandidateController extends Controller
 {
@@ -16,7 +18,7 @@ class CandidateController extends Controller
     
        public function create()
     {
-        return view('pages.create-cnd');
+        return view('pages.candidate.create-candidate');
     }
 
     public function store(Request $request)
@@ -44,8 +46,17 @@ class CandidateController extends Controller
  public function update($candidate_id)
     {
         $cnd = Candidate::find($candidate_id);
-        return view('pages.candidate.edit-cnd',compact('cnd'));
+        return view('pages.candidate.edit-candidate',compact('cnd'));
     }
 
+    public function editStore(Request $request)
+    {
+       $cnd = Candidate::find($request->candidate_id);
+        $cnd->name = $request->name;
+        $cnd->amount = $request->amount;
+        $cnd->price = $request->price;
+        $cnd->save();
+        return Redirect::to('/Candidate');
+    }
 
 }

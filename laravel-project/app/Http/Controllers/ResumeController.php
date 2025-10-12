@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ResumeController extends Controller
 {
@@ -46,6 +48,16 @@ class ResumeController extends Controller
     {
         $cat = Resume::find($resume_id);
         return view('pages.Resume.edit-resume',compact('resume'));
+    }
+
+       public function editStore(Request $request)
+    {
+       $resume = Resume::find($request->resume_id);
+        $resume->name = $request->name;
+        $resume->amount = $request->amount;
+        $resume->price = $request->price;
+        $resume->save();
+        return Redirect::to('/resume');
     }
 
 }
