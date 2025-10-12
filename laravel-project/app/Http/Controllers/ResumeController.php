@@ -13,12 +13,12 @@ class ResumeController extends Controller
     public function index()
     {
         $resumes = Resume::with(['educations', 'experiences', 'skills'])->get();
-        return view('pages.resume.index', compact('resumes'));
+        return view('pages.resumes.resume', compact('resumes'));
     }
 
     public function create()
     {
-        return view('pages.resume.create');
+        return view('pages.resumes.create-resume');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class ResumeController extends Controller
             }
         }
 
-        return redirect()->route('resume.index')->with('success', 'Resume created successfully!');
+        return redirect()->route('resumes.resume')->with('success', 'Resume created successfully!');
     }
 
     public function show($id)
