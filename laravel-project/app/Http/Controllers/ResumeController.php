@@ -3,61 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resume;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Skill;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class ResumeController extends Controller
 {
-         public function index()
-     
+    public function index()
     {
-        $resume = Resume::all();
-        return view('pages.resume.resumes',compact('resume'));
+        $resumes = Resume::with(['educations', 'experiences', 'skills'])->get();
+        return view('pages.resume.index', compact('resumes'));
     }
 
-    
-       public function create()
+    public function create()
     {
-        return view('pages.create-resume');
+        return view('pages.resume.create');
     }
 
     public function store(Request $request)
     {
-
-        Resume::create($request->only([
-            'name',
-            'amount',
-            'price',
+        $resume = Resume::create($request->only([
+            'user_id', 'name', 'email', 'profession_title',
+            'location', 'web', 'pre_hour', 'age', 'cover_image'
         ]));
-        // dd($request->all());
 
+        // Save related data if provided
+        if ($request->educations) {
+            foreach ($request->educations as $edu) {
+                $resume->educations()->create($edu);
+            }
+        }
 
-        return Redirect::to('/Resume');
+        if ($request->experiences) {
+            foreach ($request->experiences as $exp) {
+                $resume->experiences()->create($exp);
+            }
+        }
+
+        if ($request->skills) {
+            foreach ($request->skills as $skill) {
+                $resume->skills()->create($skill);
+            }
+        }
+
+        return redirect()->route('resume.index')->with('success', 'Resume created successfully!');
     }
 
-    
-    public function destroy(Request $request)
+    public function show($id)
     {
-        $product = Resume::find($request->resume_id);
-        $product->delete();
-        return Redirect::to('/Resume');
-}
-
-
- public function update($resume_id)
-    {
-        $cat = Resume::find($resume_id);
-        return view('pages.Resume.edit-resume',compact('resume'));
+        $resume = Resume::with(['educations', 'experiences', 'skills'])->findOrFail($id);
+        return view('pages.resume.show', compact('resume'));
     }
 
-       public function editStore(Request $request)
+    public function destroy($id)
     {
-       $resume = Resume::find($request->resume_id);
-        $resume->name = $request->name;
-        $resume->amount = $request->amount;
-        $resume->price = $request->price;
-        $resume->save();
-        return Redirect::to('/resume');
+        Resume::findOrFail($id)->delete();
+        return redirect()->route('resume.index')->with('success', 'Resume deleted successfully.');
     }
-
 }

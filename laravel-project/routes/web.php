@@ -68,3 +68,6 @@ Route::post('editStoreC', [candidateController::class, 'editStoreC'])->name('edi
 
 Route::delete('delete', [candidateController::class, 'destroy'])->name('delete');
 
+// """""""",,,,,,,"""""""" Resume""""""",,,,,,"""""""""""""
+
+Route::resource('resume', ResumeController::class);
