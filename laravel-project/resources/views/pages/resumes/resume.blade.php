@@ -9,7 +9,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12 col-md-10 text-center">
             <h1 class="display-2 text-white text-center"> Resume List</h1>
-            <a href="{{ route('create') }}" class="btn btn-info">Add Resume</a>
+            <a href="{{ route('resumes.create') }}" class="btn btn-info">Add Resume</a>
         </div>
       </div>
 </div>

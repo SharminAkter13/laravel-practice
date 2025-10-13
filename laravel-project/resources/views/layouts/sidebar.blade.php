@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+  <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
       <!-- Toggler -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@
             <a class="nav-link " href="/user">
               <i class="ni ni-planet text-blue"></i> User
             </a>
- 
+
           </li>
           <li class="nav-item">
             <a class="nav-link " href="/category">
@@ -106,32 +106,32 @@
             </a>
           </li>
 
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="/candidates">
               <i class="ni ni-single-02 text-yellow"></i> Candidates
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="/employeer">
               <i class="ni ni-single-02 text-yellow"></i> Employeers
             </a>
           </li>
-           <li class="nav-item">
-            <a class="nav-link " href="/resume">
+          <li class="nav-item">
+            <a class="nav-link " href="/resumes">
               <i class="ni ni-single-02 text-yellow"></i> Resume
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="./job">
               <i class="ni ni-single-02 text-yellow"></i> Job
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="/job-skill">
               <i class="ni ni-single-02 text-yellow"></i> Job Skills
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="/interviews">
               <i class="ni ni-single-02 text-yellow"></i> Interviews
             </a>
@@ -157,8 +157,8 @@
             </a>
           </li>
         </ul>
-       
-        
+
+
       </div>
     </div>
   </nav>

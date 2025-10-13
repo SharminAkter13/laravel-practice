@@ -79,3 +79,13 @@ Route::get('/resumes/{id}', [ResumeController::class, 'show'])->name('resumes.sh
 Route::get('/resumes/{id}/edit', [ResumeController::class, 'edit'])->name('resumes.edit');
 Route::post('/resumes/{id}/update', [ResumeController::class, 'update'])->name('resumes.update');
 Route::delete('/resumes/{id}', [ResumeController::class, 'destroy'])->name('resumes.destroy');
+
+
+// Route::get('/resumes', [ResumeController::class, 'index'])->name('/resumes');
+// Route::get('/resumesCreate', [ResumeController::class, 'create'])->name('/resumesCreate');
+// Route::post('/resumesStore', [ResumeController::class, 'store'])->name('/resumesStore');
+// Route::get('/resumes/{resume_id}', [ResumeController::class, 'show'])->name('resumes.show');
+// Route::get('/resumesEdit/{resume_id}', [ResumeController::class, 'update'])->name('resumes.edit');
+// // Route::get('/resumesEdit/{resume_id}', [ResumeController::class, 'edit'])->name('resumes.edit');
+// // Route::post('/resumesUpdate{resume_id}', [ResumeController::class, 'update'])->name('resumes.update');
+// Route::delete('/resumes/{resume_id}', [ResumeController::class, 'destroy'])->name('resumes.destroy');
