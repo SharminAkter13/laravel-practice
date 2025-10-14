@@ -4444,12 +4444,12 @@ input[type="button"].btn-block {
 }
 #navbar-main .text-uppercase {
     /* Use pure white to ensure visibility */
-    color: #fff !important;
+    color: #000000  !important;
 }
 
 /* Alternative targeting the h4 class on the anchor */
 #navbar-main .h4 {
-    color: #fff !important;
+    color: #000000  !important;
 }
 
 .nav {
@@ -15581,14 +15581,14 @@ a.btn-icon-only {
 }
 
 .main-content .navbar-top {
-  position: absolute;
-  left: 0;
+  position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: transparent;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  left: 250px; /* match your sidebar width */
+  width: calc(100% - 250px);
+  z-index: 1030;
+  background-color: #f8f9fa; /* light navbar */
+  padding: 0 1rem;
+  border-bottom: 1px solid #dee2e6;
 }
 
 @media (min-width: 768px) {
