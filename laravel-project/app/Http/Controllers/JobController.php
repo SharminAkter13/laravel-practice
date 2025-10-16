@@ -1,61 +1,43 @@
 <?php
-
-namespace App\Http\Controllers;
-
 use App\Models\Job;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class JobController extends Controller
 {
-        public function index()
-     
-    {
-        $job = Job::all();
-        return view('pages.job.jobs',compact('job'));
-    }
-
-    
-       public function create()
-    {
-        return view('pages.create-job');
-    }
-
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'user_email' => 'required|email',
+            'category' => 'required|string',
+            'description' => 'required'
+        ]);
 
-        Job::create($request->only([
-            'name',
-            'amount',
-            'price',
-        ]));
-        // dd($request->all());
+        // Check if category exists, or create it
+        $category = Category::firstOrCreate(
+            ['name' => $request->category],
+            ['icon' => 'ti-briefcase']
+        );
 
+        // Create new job
+        Job::create([
+            'user_email' => $request->user_email,
+            'title' => $request->title,
+            'location' => $request->location,
+            'category_id' => $category->id,
+            'tags' => $request->tags,
+            'description' => $request->description,
+            'application_email' => $request->application_email,
+            'application_url' => $request->application_url,
+            'closing_date' => $request->closing_date,
+            'company_name' => $request->company_name,
+            'website' => $request->website,
+            'tagline' => $request->tagline,
+            'cover_image' => $request->cover_image,
+            'status' => 'active',
+        ]);
 
-        return Redirect::to('/Job');
-    }
-
-    
-    public function destroy(Request $request)
-    {
-        $product = Job::find($request->job_id);
-        $product->delete();
-        return Redirect::to('/Job');
-}
-
- public function update($job_id)
-    {
-        $job = Job::find($job_id);
-        return view('pages.job.edit-job',compact('job'));
-    }
-
-       public function editStore(Request $request)
-    {
-       $job = Job::find($request->job_id);
-        $job->name = $request->name;
-        $job->amount = $request->amount;
-        $job->price = $request->price;
-        $job->save();
-        return Redirect::to('/job');
+        return redirect()->back()->with('success', 'Job posted successfully!');
     }
 }

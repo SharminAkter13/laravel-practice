@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('amount');
-            $table->integer('price');
+            $table->string('name')->unique();
+            $table->string('icon')->default('ti-briefcase');
             $table->timestamps();
         });
     }
