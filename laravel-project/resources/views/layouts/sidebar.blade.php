@@ -69,7 +69,7 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('home') ? 'active' : '' }}" href="{{ url('/home') }}">
+          <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ url('/dashboard') }}">
             <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>

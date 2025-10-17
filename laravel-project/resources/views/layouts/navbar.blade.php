@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main">
   <div class="container-fluid">
     <!-- Brand -->
-    <a class="h4 mb-0 text-dark text-uppercase d-none d-lg-inline-block nav-link fw-bold" href="{{ url('/home') }}">
+    <a class="h4 mb-0 text-dark text-uppercase d-none d-lg-inline-block nav-link fw-bold" href="{{ url('/dashboard') }}">
       Dashboard
     </a>
 
@@ -26,7 +26,7 @@
               <img alt="User Avatar" src="{{ asset('assets/img/theme/team-4-800x800.jpg') }}">
             </span>
             <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm font-weight-bold">Jessica Jones</span>
+              <span class="mb-0 text-sm font-weight-bold">Sharmin Akter</span>
             </div>
           </div>
         </a>

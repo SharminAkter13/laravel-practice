@@ -25,9 +25,13 @@ Route::get('/master', function () {
     return view('master');
 });
 
+Route::get('/home', function () {
+    return view('portal_pages.home');
+});
 
 
-Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/dashboard', [HomeController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/', [LoginController::class, 'index']);
 
