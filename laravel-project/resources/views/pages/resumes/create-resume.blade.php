@@ -1,14 +1,14 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
   <div class="card shadow-sm">
     <div class="card-header bg-success text-white">
       <h4 class="mb-0">Create Resume</h4>
     </div>
 
     <div class="card-body">
-<form action="{{ route('resumes.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('resumes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- ========== BASIC INFO ========== -->
@@ -56,16 +56,31 @@
           <div class="edu-item border rounded p-3 mb-3 bg-light">
             <div class="row g-3">
               <div class="col-md-4">
-                <input type="text" name="educations[0][degree]" placeholder="Degree" class="form-control">
+                <input type="text" name="educations[0][degree]" placeholder="Degree" class="form-control" required>
               </div>
               <div class="col-md-4">
                 <input type="text" name="educations[0][field_of_study]" placeholder="Field of Study" class="form-control">
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <input type="text" name="educations[0][school]" placeholder="School" class="form-control">
               </div>
-              <div class="col-md-1 d-flex align-items-center">
-                <button type="button" class="btn btn-danger btn-sm removeEdu w-100">×</button>
+              <div class="col-md-6">
+                <label>From</label>
+                <input type="date" name="educations[0][edu_from]" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>To</label>
+                <input type="date" name="educations[0][edu_to]" class="form-control">
+              </div>
+              <div class="col-12">
+                <textarea name="educations[0][edu_description]" rows="2" placeholder="Description" class="form-control"></textarea>
+              </div>
+              <div class="col-md-10">
+                <label>Institution Logo</label>
+                <input type="file" name="educations[0][edu_logo]" class="form-control">
+              </div>
+              <div class="col-md-2 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm removeEdu w-100 mt-4">×</button>
               </div>
             </div>
           </div>
@@ -79,14 +94,29 @@
         <div id="experienceFields">
           <div class="exp-item border rounded p-3 mb-3 bg-light">
             <div class="row g-3">
-              <div class="col-md-5">
-                <input type="text" name="experiences[0][company_name]" placeholder="Company" class="form-control">
+              <div class="col-md-6">
+                <input type="text" name="experiences[0][company_name]" placeholder="Company Name" class="form-control" required>
               </div>
-              <div class="col-md-5">
-                <input type="text" name="experiences[0][title]" placeholder="Title" class="form-control">
+              <div class="col-md-6">
+                <input type="text" name="experiences[0][title]" placeholder="Job Title" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>From</label>
+                <input type="date" name="experiences[0][exp_from]" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>To</label>
+                <input type="date" name="experiences[0][exp_to]" class="form-control">
+              </div>
+              <div class="col-12">
+                <textarea name="experiences[0][exp_description]" rows="2" placeholder="Description" class="form-control"></textarea>
+              </div>
+              <div class="col-md-10">
+                <label>Company Logo</label>
+                <input type="file" name="experiences[0][exp_logo]" class="form-control">
               </div>
               <div class="col-md-2 d-flex align-items-center">
-                <button type="button" class="btn btn-danger btn-sm removeExp w-100">×</button>
+                <button type="button" class="btn btn-danger btn-sm removeExp w-100 mt-4">×</button>
               </div>
             </div>
           </div>
@@ -126,79 +156,66 @@
 @endsection
 
 @section('scripts')
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
   let eduCount = 1, expCount = 1, skillCount = 1;
 
-  // Education Add
+  // Add Education
   document.getElementById('addEducation').addEventListener('click', function () {
     const container = document.getElementById('educationFields');
     const newEdu = `
       <div class="edu-item border rounded p-3 mb-3 bg-light">
         <div class="row g-3">
-          <div class="col-md-4">
-            <input type="text" name="educations[${eduCount}][degree]" placeholder="Degree" class="form-control">
-          </div>
-          <div class="col-md-4">
-            <input type="text" name="educations[${eduCount}][field_of_study]" placeholder="Field of Study" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <input type="text" name="educations[${eduCount}][school]" placeholder="School" class="form-control">
-          </div>
-          <div class="col-md-1 d-flex align-items-center">
-            <button type="button" class="btn btn-danger btn-sm removeEdu w-100">×</button>
-          </div>
+          <div class="col-md-4"><input type="text" name="educations[${eduCount}][degree]" placeholder="Degree" class="form-control" required></div>
+          <div class="col-md-4"><input type="text" name="educations[${eduCount}][field_of_study]" placeholder="Field of Study" class="form-control"></div>
+          <div class="col-md-4"><input type="text" name="educations[${eduCount}][school]" placeholder="School" class="form-control"></div>
+          <div class="col-md-6"><label>From</label><input type="date" name="educations[${eduCount}][edu_from]" class="form-control"></div>
+          <div class="col-md-6"><label>To</label><input type="date" name="educations[${eduCount}][edu_to]" class="form-control"></div>
+          <div class="col-12"><textarea name="educations[${eduCount}][edu_description]" rows="2" placeholder="Description" class="form-control"></textarea></div>
+          <div class="col-md-10"><label>Institution Logo</label><input type="file" name="educations[${eduCount}][edu_logo]" class="form-control"></div>
+          <div class="col-md-2 d-flex align-items-center"><button type="button" class="btn btn-danger btn-sm removeEdu w-100 mt-4">×</button></div>
         </div>
       </div>`;
     container.insertAdjacentHTML('beforeend', newEdu);
     eduCount++;
   });
 
-  // Experience Add
+  // Add Experience
   document.getElementById('addExperience').addEventListener('click', function () {
     const container = document.getElementById('experienceFields');
     const newExp = `
       <div class="exp-item border rounded p-3 mb-3 bg-light">
         <div class="row g-3">
-          <div class="col-md-5">
-            <input type="text" name="experiences[${expCount}][company_name]" placeholder="Company" class="form-control">
-          </div>
-          <div class="col-md-5">
-            <input type="text" name="experiences[${expCount}][title]" placeholder="Title" class="form-control">
-          </div>
-          <div class="col-md-2 d-flex align-items-center">
-            <button type="button" class="btn btn-danger btn-sm removeExp w-100">×</button>
-          </div>
+          <div class="col-md-6"><input type="text" name="experiences[${expCount}][company_name]" placeholder="Company Name" class="form-control" required></div>
+          <div class="col-md-6"><input type="text" name="experiences[${expCount}][title]" placeholder="Job Title" class="form-control"></div>
+          <div class="col-md-6"><label>From</label><input type="date" name="experiences[${expCount}][exp_from]" class="form-control"></div>
+          <div class="col-md-6"><label>To</label><input type="date" name="experiences[${expCount}][exp_to]" class="form-control"></div>
+          <div class="col-12"><textarea name="experiences[${expCount}][exp_description]" rows="2" placeholder="Description" class="form-control"></textarea></div>
+          <div class="col-md-10"><label>Company Logo</label><input type="file" name="experiences[${expCount}][exp_logo]" class="form-control"></div>
+          <div class="col-md-2 d-flex align-items-center"><button type="button" class="btn btn-danger btn-sm removeExp w-100 mt-4">×</button></div>
         </div>
       </div>`;
     container.insertAdjacentHTML('beforeend', newExp);
     expCount++;
   });
 
-  // Skills Add
+  // Add Skill
   document.getElementById('addSkill').addEventListener('click', function () {
     const container = document.getElementById('skillFields');
     const newSkill = `
       <div class="skill-item border rounded p-3 mb-3 bg-light">
         <div class="row g-3">
-          <div class="col-md-5">
-            <input type="text" name="skills[${skillCount}][skill_name]" placeholder="Skill name" class="form-control">
-          </div>
-          <div class="col-md-5">
-            <input type="number" name="skills[${skillCount}][skill_percent]" placeholder="Percent" class="form-control">
-          </div>
-          <div class="col-md-2 d-flex align-items-center">
-            <button type="button" class="btn btn-danger btn-sm removeSkill w-100">×</button>
-          </div>
+          <div class="col-md-5"><input type="text" name="skills[${skillCount}][skill_name]" placeholder="Skill name" class="form-control"></div>
+          <div class="col-md-5"><input type="number" name="skills[${skillCount}][skill_percent]" placeholder="Percent" class="form-control"></div>
+          <div class="col-md-2 d-flex align-items-center"><button type="button" class="btn btn-danger btn-sm removeSkill w-100">×</button></div>
         </div>
       </div>`;
     container.insertAdjacentHTML('beforeend', newSkill);
     skillCount++;
   });
 
-  // Remove buttons (delegated)
+  // Remove dynamically
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('removeEdu')) e.target.closest('.edu-item').remove();
     if (e.target.classList.contains('removeExp')) e.target.closest('.exp-item').remove();
@@ -206,5 +223,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-
 @endsection
