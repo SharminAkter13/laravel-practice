@@ -60,7 +60,7 @@ Route::get('/candidate', [candidateController::class, 'index']);
 Route::get('/candidateCreate', [candidateController::class, 'create'])->name('candidateCreate');
 
 Route::post('candidateStore', [CandidateController::class, 'store'])->name('candidateStore');
-Route::get('candidateEdit/{candidate_id}', [candidateController::class, 'update'])->name('userEdit');
+Route::get('candidateEdit/{candidate_id}', [candidateController::class, 'update'])->name('canEdit');
 
 Route::post('editStoreC', [candidateController::class, 'editStoreC'])->name('editStoreC');
 

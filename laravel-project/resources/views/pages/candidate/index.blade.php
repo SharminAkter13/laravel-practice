@@ -9,7 +9,7 @@
     <div class="row align-items-center">
     <div class="col-lg-12 col-md-10 text-center">
         <h1 class="display-2 text-white text-center"> Candidate List</h1>
-        <a href="{{ route('userCreate') }}" class="btn btn-info">Add Candidate</a>
+        <a href="{{ route('candidateCreate') }}" class="btn btn-info">Add Candidate</a>
     </div>
 </div>
     </div>
@@ -42,7 +42,7 @@
       <td>{{$u->password }}</td>
       <td>
           <div class="btn-group">
-                      <a href="{{ route('userEdit', $u->id) }}">
+                      <a href="{{ route('canEdit', $u->id) }}">
                         <button class="btn btn-md btn-success me-1 p-1"><i class="bi bi-pencil-square"></i></button>
                       </a>
 

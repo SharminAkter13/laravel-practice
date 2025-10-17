@@ -87,7 +87,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('candidates*') ? 'active' : '' }}" href="{{ url('/candidates') }}">
+          <a class="nav-link {{ request()->is('candidates*') ? 'active' : '' }}" href="{{ url('/candidate') }}">
             <i class="ni ni-single-02 text-yellow"></i> Candidates
           </a>
         </li>
