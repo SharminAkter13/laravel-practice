@@ -46,8 +46,8 @@
               <td>{{ $resume->profession_title }}</td>
               <td>{{ $resume->location }}</td>
               <td>
-                <a href="{{ route('resume.show', $resume->id) }}" class="btn btn-info btn-sm">View</a>
-                <form action="{{ route('resume.destroy', $resume->id) }}" method="POST" style="display:inline-block">
+                <a href="{{ route('resumes.show', $resume->id) }}" class="btn btn-info btn-sm">View</a>
+                <form action="{{ route('resumes.destroy', $resume->id) }}" method="POST" style="display:inline-block">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this resume?')">Delete</button>

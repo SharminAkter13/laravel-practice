@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Resume; // ✅ Add this line
+
 
 class Experience extends Model
 {
     use HasFactory;
-    protected $table = 'experiances';
+    protected $table = 'experiences';
 
     protected $fillable = [
         'resume_id', 'company_name', 'title',

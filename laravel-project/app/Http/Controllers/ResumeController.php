@@ -73,7 +73,7 @@ class ResumeController extends Controller
                 }
             }
         }
-        dd($request->all());
+        // dd($request->all());
 
 
         // return Redirect()->route('resumes.resume')->with('success', 'Resume created successfully!');

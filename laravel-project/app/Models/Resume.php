@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Skill;
 
 class Resume extends Model
 {
