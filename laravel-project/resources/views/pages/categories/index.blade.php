@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
     <h2>Categories</h2>
     <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">+ Add Category</a>
 

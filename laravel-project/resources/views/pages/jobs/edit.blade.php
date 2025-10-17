@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
     <h2>Edit Job</h2>
 
     <form action="{{ route('jobs.update', $job->id) }}" method="POST" enctype="multipart/form-data">

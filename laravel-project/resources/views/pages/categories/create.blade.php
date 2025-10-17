@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
+    
     <h2>Create Category</h2>
 
     <form action="{{ route('categories.store') }}" method="POST">

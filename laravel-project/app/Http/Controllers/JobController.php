@@ -12,13 +12,13 @@ class JobController extends Controller
     public function index()
     {
         $jobs = Job::with('category')->get();
-        return view('jobs.index', compact('jobs'));
+        return view('pages.jobs.index', compact('jobs'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('jobs.create', compact('categories'));
+        return view('pages.jobs.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -47,13 +47,13 @@ class JobController extends Controller
         }
 
         Job::create($data);
-        return redirect()->route('jobs.index')->with('success', 'Job created successfully.');
+        return redirect()->route('pages.jobs.index')->with('success', 'Job created successfully.');
     }
 
     public function edit(Job $job)
     {
         $categories = Category::all();
-        return view('jobs.edit', compact('job', 'categories'));
+        return view('pages.jobs.edit', compact('job', 'categories'));
     }
 
     public function update(Request $request, Job $job)
@@ -85,7 +85,7 @@ class JobController extends Controller
         }
 
         $job->update($data);
-        return redirect()->route('jobs.index')->with('success', 'Job updated successfully.');
+        return redirect()->route('pages.jobs.index')->with('success', 'Job updated successfully.');
     }
 
     public function destroy(Job $job)
@@ -94,6 +94,6 @@ class JobController extends Controller
             Storage::disk('public')->delete($job->cover_image);
         }
         $job->delete();
-        return redirect()->route('jobs.index')->with('success', 'Job deleted successfully.');
+        return redirect()->route('pages.jobs.index')->with('success', 'Job deleted successfully.');
     }
 }
