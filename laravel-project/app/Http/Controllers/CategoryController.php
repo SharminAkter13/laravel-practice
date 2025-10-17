@@ -4,58 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
-     public function index()
-     
+    public function index()
     {
-        $cats = Category::all();
-        return view('pages.category.categories',compact('cats'));
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
     }
 
-    
-       public function create()
+    public function create()
     {
-        return view('pages.category.create');
+        return view('categories.create');
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'icon' => 'nullable|string|max:255',
+        ]);
 
-        Category::create($request->only([
-            'name',
-            'amount',
-            'price',
-        ]));
-        // dd($request->all());
-
-
-        return Redirect::to('/category');
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
-    
-    public function destroy(Request $request)
+    public function edit(Category $category)
     {
-        $product = Category::find($request->catagory_id);
-        $product->delete();
-        return Redirect::to('/category');
-}
- public function update($catagory_id)
-    {
-        $cat = Category::find($catagory_id);
-        return view('pages.category.edit',compact('cat'));
-    }
-    
-       public function editStore(Request $request)
-    {
-       $cat = Category::find($request->catagory_id);
-        $cat->name = $request->name;
-        $cat->amount = $request->amount;
-        $cat->price = $request->price;
-        $cat->save();
-        return Redirect::to('/category');
+        return view('categories.edit', compact('category'));
     }
 
+    public function update(Request $request, Category $category)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'icon' => 'nullable|string|max:255',
+        ]);
+
+        $category->update($request->all());
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+    }
 }

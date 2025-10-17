@@ -81,7 +81,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('category*') ? 'active' : '' }}" href="{{ url('/category') }}">
+          <a class="nav-link {{ request()->is('category*') ? 'active' : '' }}" href="{{ url('/categories') }}">
             <i class="ni ni-pin-3 text-orange"></i> Category
           </a>
         </li>
@@ -105,7 +105,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('job*') ? 'active' : '' }}" href="{{ url('/job') }}">
+          <a class="nav-link {{ request()->is('job*') ? 'active' : '' }}" href="{{ url('/jobs') }}">
             <i class="ni ni-briefcase-24 text-green"></i> Job
           </a>
         </li>

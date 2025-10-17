@@ -33,16 +33,12 @@ Route::get('/', [LoginController::class, 'index']);
 // """"""",,,,,,""""' Categories"""""",,,,,"""""""
 
 
-Route::get('/category', [CategoryController::class, 'index']);
-Route::get('/create', [CategoryController::class, 'create'])->name('create');
-
-Route::post('store', [CategoryController::class, 'store'])->name('store');
-
-Route::get('edit/{catagory_id}', [CategoryController::class, 'update'])->name('edit');
-
-Route::post('editStore', [CategoryController::class, 'editStore'])->name('editStore');
-
-Route::delete('delete', [CategoryController::class, 'destroy'])->name('delete');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 // """"""",,,,,,""""' Users"""""",,,,,"""""""
 
@@ -81,11 +77,12 @@ Route::post('/resumes/{id}/update', [ResumeController::class, 'update'])->name('
 Route::delete('/resumes/{id}', [ResumeController::class, 'destroy'])->name('resumes.destroy');
 
 
-// Route::get('/resumes', [ResumeController::class, 'index'])->name('/resumes');
-// Route::get('/resumesCreate', [ResumeController::class, 'create'])->name('/resumesCreate');
-// Route::post('/resumesStore', [ResumeController::class, 'store'])->name('/resumesStore');
-// Route::get('/resumes/{resume_id}', [ResumeController::class, 'show'])->name('resumes.show');
-// Route::get('/resumesEdit/{resume_id}', [ResumeController::class, 'update'])->name('resumes.edit');
-// // Route::get('/resumesEdit/{resume_id}', [ResumeController::class, 'edit'])->name('resumes.edit');
-// // Route::post('/resumesUpdate{resume_id}', [ResumeController::class, 'update'])->name('resumes.update');
-// Route::delete('/resumes/{resume_id}', [ResumeController::class, 'destroy'])->name('resumes.destroy');
+
+// -------------------- JOB ROUTES --------------------
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+Route::put('/jobs/{job}', [JobController::class, 'update'])->name('jobs.update');
+Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
