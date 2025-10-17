@@ -1,59 +1,69 @@
 @extends('master')
+
 @section('page')
-<div class="card">
-<div class="header pb-5 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-  <!-- Mask -->
-  <span class="mask bg-gradient-default opacity-8"></span>
-  <!-- Header container -->
-  <div class="container-fluid d-flex align-items-center">
-    <div class="row align-items-center">
-    <div class="col-lg-12 col-md-10 text-center">
-        <h1 class="display-2 text-white text-center"> Categories List</h1>
-        <a href="{{ route('create') }}" class="btn btn-info">Add Categories</a>
-    </div>
-</div>
+<div class="card shadow-sm border-0 mt-4">
+
+  <!-- Header Section -->
+  <div class="header pb-4 pt-5 d-flex align-items-center" 
+       style="min-height: 100px; background-image: url('{{ asset('assets/img/theme/profile-cover.jpg') }}'); background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center justify-content-center">
+      <div class="text-center">
+        <h1 class="display-5 text-white fw-bold">Categories List</h1>
+        <a href="{{ route('categories.create') }}" class="btn btn-info mt-3">
+          <i class="bi bi-plus-circle me-1"></i> Add Category
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-  <div>
-
-    <table class="table table-praimary table-hover">
-      <thead>
+  <!-- Table Section -->
+  <div class="card-body table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Price</th>
-          <th scope="col">Action</th>
+          <th scope="col" class="text-center">#</th>
+          <th scope="col">Category Name</th>
+          <th scope="col" class="text-center">Icon</th>
+          <th scope="col" class="text-center">Job Count</th>
+          <th scope="col" class="text-center">Actions</th>
         </tr>
       </thead>
+
       <tbody>
-        @foreach ($cats as $cat)
+        @forelse ($categories as $category)
         <tr>
-          <th scope="row">{{$loop->iteration}}</th>
-          <td>{{ $cat->name }}</td>
-          <td>{{ $cat->amount }}</td>
-          <td>{{ $cat->price }}</td>
-          <td>
-                        <div class="btn-group">
-                          <a href="{{ route('edit', $cat->id) }}">
-                            <button class="btn btn-md btn-success me-1 p-1"><i class="bi bi-pencil-square"></i></button>
-                          </a>
+          <td class="text-center">{{ $loop->iteration }}</td>
+          <td class="fw-semibold">{{ $category->name }}</td>
+          <td class="text-center">
+            <i class="{{ $category->icon }} fs-4 text-primary"></i>
+          </td>
+          <td class="text-center">
+            {{ $category->job_count ?? 0 }}
+          </td>
+          <td class="text-center">
+            <div class="btn-group" role="group">
+              <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-success me-2">
+                <i class="bi bi-pencil-square"></i>
+              </a>
 
-                          <form action="{{route('delete')}}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <input type="text" name="catagory_id" value="{{ $cat->id }}" hidden>
-                          <button class="btn btn-md btn-danger  p-1"><i class="bi bi-trash3-fill"></i></button>
-                    </form>
-
-
-                        </div>
-                    </td>
+              <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3-fill"></i>
+                </button>
+              </form>
+            </div>
+          </td>
         </tr>
-        @endforeach
-        
+        @empty
+        <tr>
+          <td colspan="5" class="text-center text-muted py-4">
+            <i class="bi bi-inbox"></i> No categories found.
+          </td>
+        </tr>
+        @endforelse
       </tbody>
     </table>
   </div>

@@ -1,0 +1,99 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Resume;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Skill;
+use Illuminate\Support\Facades\Storage;
+
+class ResumeController extends Controller
+{
+    /**
+     * Show the create resume form
+     */
+    public function create()
+    {
+        return view('pages.resume.create');
+    }
+
+    /**
+     * Store resume and its related records
+     */
+    public function store(Request $request)
+    {
+        // ✅ Validate request
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'profession_title' => 'nullable|string|max:150',
+            'location' => 'nullable|string|max:150',
+            'web' => 'nullable|string|max:150',
+            'pre_hour' => 'nullable|string|max:50',
+            'age' => 'nullable|integer',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        // ✅ Handle cover image upload
+        if ($request->hasFile('cover_image')) {
+            $path = $request->file('cover_image')->store('resumes', 'public');
+            $validated['cover_image'] = $path;
+        }
+
+        // ✅ Create the Resume
+        $resume = Resume::create($validated);
+
+        // ✅ Save Education Entries
+        if ($request->has('educations')) {
+            foreach ($request->educations as $edu) {
+                if (!empty($edu['degree'])) {
+                    Education::create([
+                        'resume_id' => $resume->id,
+                        'degree' => $edu['degree'] ?? null,
+                        'field_of_study' => $edu['field_of_study'] ?? null,
+                        'school' => $edu['school'] ?? null,
+                    ]);
+                }
+            }
+        }
+
+        // ✅ Save Experience Entries
+        if ($request->has('experiences')) {
+            foreach ($request->experiences as $exp) {
+                if (!empty($exp['company_name'])) {
+                    Experience::create([
+                        'resume_id' => $resume->id,
+                        'company_name' => $exp['company_name'] ?? null,
+                        'title' => $exp['title'] ?? null,
+                    ]);
+                }
+            }
+        }
+
+        // ✅ Save Skills Entries
+        if ($request->has('skills')) {
+            foreach ($request->skills as $skill) {
+                if (!empty($skill['skill_name'])) {
+                    Skill::create([
+                        'resume_id' => $resume->id,
+                        'skill_name' => $skill['skill_name'] ?? null,
+                        'skill_percent' => $skill['skill_percent'] ?? null,
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->back()->with('success', 'Resume created successfully!');
+    }
+
+    /**
+     * Display all resumes (optional)
+     */
+    public function index()
+    {
+        $resumes = Resume::with(['educations', 'experiences', 'skills'])->get();
+        return view('pages.resume.index', compact('resumes'));
+    }
+}
