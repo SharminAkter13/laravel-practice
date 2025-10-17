@@ -75,7 +75,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ url('/user') }}">
+          <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ url('/users') }}">
             <i class="ni ni-planet text-blue"></i> User
           </a>
         </li>
@@ -87,13 +87,13 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('candidates*') ? 'active' : '' }}" href="{{ url('/candidate') }}">
+          <a class="nav-link {{ request()->is('candidates*') ? 'active' : '' }}" href="{{ url('/candidates') }}">
             <i class="ni ni-single-02 text-yellow"></i> Candidates
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('employeer*') ? 'active' : '' }}" href="{{ url('/employeer') }}">
+          <a class="nav-link {{ request()->is('employeer*') ? 'active' : '' }}" href="{{ url('/employers') }}">
             <i class="ni ni-single-02 text-yellow"></i> Employers
           </a>
         </li>

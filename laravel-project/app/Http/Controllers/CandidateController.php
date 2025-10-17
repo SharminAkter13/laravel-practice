@@ -13,12 +13,12 @@ class CandidateController extends Controller
     public function index()
     {
         $candidates = Candidate::with('user')->get();
-        return view('candidates.index', compact('candidates'));
+        return view('pages.candidates.index', compact('candidates'));
     }
 
     public function create()
     {
-        return view('candidates.create');
+        return view('pages.candidates.create');
     }
 
     public function store(Request $request)
@@ -44,12 +44,12 @@ class CandidateController extends Controller
         // Create Candidate profile
         $user->candidate()->create($request->only(['resume','phone','address']));
 
-        return redirect()->route('candidates.index')->with('success', 'Candidate created successfully!');
+        return redirect()->route('pages.candidates.index')->with('success', 'Candidate created successfully!');
     }
 
     public function edit(Candidate $candidate)
     {
-        return view('candidates.edit', compact('candidate'));
+        return view('pages.candidates.edit', compact('candidate'));
     }
 
     public function update(Request $request, Candidate $candidate)
@@ -71,12 +71,12 @@ class CandidateController extends Controller
         // Update Candidate profile
         $candidate->update($request->only(['resume','phone','address']));
 
-        return redirect()->route('candidates.index')->with('success', 'Candidate updated successfully!');
+        return redirect()->route('pages.candidates.index')->with('success', 'Candidate updated successfully!');
     }
 
     public function destroy(Candidate $candidate)
     {
         $candidate->user()->delete(); // deletes candidate as well due to cascade
-        return redirect()->route('candidates.index')->with('success', 'Candidate deleted successfully!');
+        return redirect()->route('pages.candidates.index')->with('success', 'Candidate deleted successfully!');
     }
 }
