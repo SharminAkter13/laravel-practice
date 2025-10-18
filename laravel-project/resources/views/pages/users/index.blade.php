@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between mb-3">
         <h3>Users</h3>
-        <a href="{{ route('user.create-user') }}" class="btn btn-primary">Add User</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
     </div>
 
     @if(session('success'))
