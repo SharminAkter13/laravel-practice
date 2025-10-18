@@ -160,9 +160,6 @@
         <h3 class="title-menu">All Pages</h3>
         <ul class="nav navmenu-nav">
           <li><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="{{ url('index-02') }}">Home Page 2</a></li>
-          <li><a href="{{ url('index-03') }}">Home Page 3</a></li>
-          <li><a href="{{ url('index-04') }}">Home Page 4</a></li>
           <li><a href="{{ url('about') }}">About us</a></li>
           <li><a href="{{ url('job-page') }}">Job Page</a></li>
           <li><a href="{{ url('job-details') }}">Job Details</a></li>
