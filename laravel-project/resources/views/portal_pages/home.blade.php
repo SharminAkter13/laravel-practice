@@ -1,11 +1,14 @@
 @extends('main')
 @section('content')
 
-<div class="search-container">
-        <div class="container">
+<div class="search-container" style="position: relative; background-image: url('{{ asset('portal/assets/img/bg/bg-intro.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4);"></div>
+     
+        <div class="container" style="position: relative; z-index: 2;">
+
           <div class="row">
             <div class="col-md-12">
-              <h1>Find the job that fits your life</h1><br>
+              <h1 style="color:white!important">Find the job that fits your life</h1><br>
               <h2>More than <strong>12,000</strong> jobs are waiting to Kickstart your career!</h2>
               <div class="content">
                 <form method="" action="#">
@@ -46,7 +49,7 @@
                 </form>
               </div>
               <div class="popular-jobs">
-                <b>Popular Keywords: </b>
+                <b style="color:white!important">Popular Keywords: </b>
                 <a href="#">Web Design</a>
                 <a href="#">Manager</a>
                 <a href="#">Programming</a>
@@ -55,11 +58,12 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
     <!-- end intro section -->
 
     <!-- Service  Section -->
-    <section id="service-main" class="section">
+    <section id="service-main" class="section" >
       <!-- Container Starts -->
       <div class="container">
         <div class="row">
@@ -125,7 +129,7 @@
           <div class="col-md-12">
             <div class="job-list">
               <div class="thumb">
-                <a href="job-details.html"><img src="assets/img/jobs/img-1.jpg" alt=""></a>
+                <a href="job-details.html"><img src="portal/assets/img/jobs/img-1.jpg" alt=""></a>
               </div>
               <div class="job-list-content">
                 <h4><a href="job-details.html">Need a web designer</a><span class="full-time">Full-Time</span></h4>
@@ -151,7 +155,7 @@
             </div>
             <div class="job-list">
               <div class="thumb">
-                <a href="job-details.html"><img src="assets/img/jobs/img-2.jpg" alt=""></a>
+                <a href="job-details.html"><img src="portal/assets/img/jobs/img-2.jpg" alt=""></a>
               </div>
               <div class="job-list-content">
                 <h4><a href="job-details.html">Front-end developer needed</a><span class="full-time">Full-Time</span>
@@ -178,7 +182,7 @@
             </div>
             <div class="job-list">
               <div class="thumb">
-                <a href="job-details.html"><img src="assets/img/jobs/img-3.jpg" alt=""></a>
+                <a href="job-details.html"><img src="portal/assets/img/jobs/img-3.jpg" alt=""></a>
               </div>
               <div class="job-list-content">
                 <h4><a href="job-details.html">Senior Accountant</a><span class="part-time">Part-Time</span></h4>
@@ -204,7 +208,7 @@
             </div>
             <div class="job-list">
               <div class="thumb">
-                <a href="job-details.html"><img src="assets/img/jobs/img-4.jpg" alt=""></a>
+                <a href="job-details.html"><img src="portal/assets/img/jobs/img-4.jpg" alt=""></a>
               </div>
               <div class="job-list-content">
                 <h4><a href="job-details.html">Fullstack web developer needed</a><span
@@ -346,7 +350,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-1.jpg" alt="">
+                      <img src="portal/assets/img/features/img-1.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -370,7 +374,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-2.jpg" alt="">
+                      <img src="portal/assets/img/features/img-2.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -394,7 +398,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-3.jpg" alt="">
+                      <img src="portal/assets/img/features/img-3.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -418,7 +422,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-3.jpg" alt="">
+                      <img src="portal/assets/img/features/img-3.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -442,7 +446,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-2.jpg" alt="">
+                      <img src="portal/assets/img/features/img-2.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -466,7 +470,7 @@
                 <div class="featured-inner">
                   <figure class="item-thumb">
                     <a class="hover-effect" href="job-page.html">
-                      <img src="assets/img/features/img-1.jpg" alt="">
+                      <img src="portal/assets/img/features/img-1.jpg" alt="">
                     </a>
                   </figure>
                   <div class="item-body">
@@ -565,7 +569,7 @@
             <div class="blog-item-wrapper">
               <div class="blog-item-img">
                 <a href="single-post.html">
-                  <img src="assets/img/blog/home-items/img1.jpg" alt="">
+                  <img src="portal/assets/img/blog/home-items/img1.jpg" alt="">
                 </a>
               </div>
               <div class="blog-item-text">
@@ -592,7 +596,7 @@
             <div class="blog-item-wrapper">
               <div class="blog-item-img">
                 <a href="single-post.html">
-                  <img src="assets/img/blog/home-items/img2.jpg" alt="">
+                  <img src="portal/assets/img/blog/home-items/img2.jpg" alt="">
                 </a>
               </div>
               <div class="blog-item-text">
@@ -619,7 +623,7 @@
             <div class="blog-item-wrapper">
               <div class="blog-item-img">
                 <a href="single-post.html">
-                  <img src="assets/img/blog/home-items/img3.jpg" alt="">
+                  <img src="portal/assets/img/blog/home-items/img3.jpg" alt="">
                 </a>
               </div>
               <div class="blog-item-text">
@@ -651,7 +655,7 @@
         <div class="row">
           <div class="touch-slider" class="owl-carousel owl-theme">
             <div class="item active text-center">
-              <img class="img-member" src="assets/img/testimonial/img1.jpg" alt="">
+              <img class="img-member" src="portal/assets/img/testimonial/img1.jpg" alt="">
               <div class="client-info">
                 <h2 class="client-name">Jessica <span>(Senior Accountant)</span></h2>
               </div>
@@ -660,7 +664,7 @@
                 the owner expectations were met and <br> often exceeded. </p>
             </div>
             <div class="item text-center">
-              <img class="img-member" src="assets/img/testimonial/img2.jpg" alt="">
+              <img class="img-member" src="portal/assets/img/testimonial/img2.jpg" alt="">
               <div class="client-info">
                 <h2 class="client-name">John Doe <span>(Project Menager)</span></h2>
               </div>
@@ -669,7 +673,7 @@
                 the owner expectations were met and <br> often exceeded. </p>
             </div>
             <div class="item text-center">
-              <img class="img-member" src="assets/img/testimonial/img3.jpg" alt="">
+              <img class="img-member" src="portal/assets/img/testimonial/img3.jpg" alt="">
               <div class="client-info">
                 <h2 class="client-name">Helen <span>(Engineer)</span></h2>
               </div>
@@ -692,28 +696,28 @@
         <div class="row">
           <div id="clients-scroller">
             <div class="items">
-              <img src="assets/img/clients/img1.png" alt="">
+              <img src="portal/assets/img/clients/img1.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img2.png" alt="">
+              <img src="portal/assets/img/clients/img2.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img3.png" alt="">
+              <img src="portal/assets/img/clients/img3.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img4.png" alt="">
+              <img src="portal/assets/img/clients/img4.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img5.png" alt="">
+              <img src="portal/assets/img/clients/img5.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img6.png" alt="">
+              <img src="portal/assets/img/clients/img6.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img6.png" alt="">
+              <img src="portal/assets/img/clients/img6.png" alt="">
             </div>
             <div class="items">
-              <img src="assets/img/clients/img6.png" alt="">
+              <img src="portal/assets/img/clients/img6.png" alt="">
             </div>
           </div>
         </div>

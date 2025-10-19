@@ -33,7 +33,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>Web Designer Meeded</h3>
                       <span>Quick Studio</span>
@@ -53,7 +53,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>Front-end developer needed</h3>
                       <span>Quick Studio</span>
@@ -73,7 +73,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>We're looking for an Art Director</h3>
                       <span>Quick Studio</span>
@@ -93,7 +93,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>Web designer needed</h3>
                       <span>Quick Studio</span>
@@ -113,7 +113,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>Looking for a Project Leader</h3>
                       <span>Quick Studio</span>
@@ -133,7 +133,7 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="thums">
-                        <img src="assets/img/jobs/img-1.jpg" alt="">
+                        <img src="portal/assets/img/jobs/img-1.jpg" alt="">
                       </div>
                       <h3>We're hiring an fullstack designer</h3>
                       <span>Quick Studio</span>

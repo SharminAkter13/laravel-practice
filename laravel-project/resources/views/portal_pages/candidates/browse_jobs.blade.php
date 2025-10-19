@@ -2,12 +2,12 @@
 @section('content')
   <!-- Job Browse Section Start -->  
       <section class="job-browse section">
-        <div class="container">
+        <div class="container" >
           <div class="row">
             <div class="col-md-9 col-sm-8">
               <div class="job-list">
                 <div class="thumb">
-                  <a href="job-details.html"><img src="assets/img/jobs/img-1.jpg" alt=""></a>
+                  <a href="job-details.html"><img src="portal/assets/img/jobs/img-1.jpg" alt=""></a>
                 </div>
                 <div class="job-list-content">
                   <h4><a href="job-details.html">We need a web designer</a><span class="full-time">Full-Time</span></h4>
@@ -31,7 +31,7 @@
               </div>
               <div class="job-list">
                 <div class="thumb">
-                  <a href="job-details.html"><img src="assets/img/jobs/img-2.jpg" alt=""></a>
+                  <a href="job-details.html"><img src="portal/assets/img/jobs/img-2.jpg" alt=""></a>
                 </div>
                 <div class="job-list-content">
                   <h4><a href="job-details.html">Front-end developer needed</a><span class="full-time">Full-Time</span></h4>
@@ -55,7 +55,7 @@
               </div>
               <div class="job-list">
                 <div class="thumb">
-                  <a href="job-details.html"><img src="assets/img/jobs/img-3.jpg" alt=""></a>
+                  <a href="job-details.html"><img src="portal/assets/img/jobs/img-3.jpg" alt=""></a>
                 </div>
                 <div class="job-list-content">
                   <h4><a href="job-details.html">Software Enginner</a><span class="part-time">Part-Time</span></h4>
@@ -79,7 +79,7 @@
               </div>
               <div class="job-list">
                 <div class="thumb">
-                  <a href="job-details.html"><img src="assets/img/jobs/img-4.jpg" alt=""></a>
+                  <a href="job-details.html"><img src="portal/assets/img/jobs/img-4.jpg" alt=""></a>
                 </div>
                 <div class="job-list-content">
                   <h4><a href="job-details.html">Fullstack web developer needed</a><span class="full-time">Full-Time</span></h4>

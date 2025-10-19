@@ -55,7 +55,7 @@
                       <p><span class="full-time">Full-Time</span></p>
                     </div>
                     <div class="col-md-3">
-                      <div class="can-img"><a href="#"><img src="assets/img/jobs/candidates.png" alt=""></a></div>
+                      <div class="can-img"><a href="#"><img src="portal/assets/img/jobs/candidates.png" alt=""></a></div>
                     </div>
                     <div class="col-md-3">
                       <p><i class="ti-star"></i></p>
@@ -72,7 +72,7 @@
                       <p><span class="full-time">Full-Time</span></p>
                     </div>
                     <div class="col-md-3">
-                      <div class="can-img"><a href="#"><img src="assets/img/jobs/candidates.png" alt=""></a></div>
+                      <div class="can-img"><a href="#"><img src="portal/assets/img/jobs/candidates.png" alt=""></a></div>
                     </div>
                     <div class="col-md-3">
                       <p><i class="ti-star"></i></p>
@@ -89,7 +89,7 @@
                       <p><span class="full-time">Full-Time</span></p>
                     </div>
                     <div class="col-md-3">
-                      <div class="can-img"><a href="#"><img src="assets/img/jobs/candidates.png" alt=""></a></div>
+                      <div class="can-img"><a href="#"><img src="portal/assets/img/jobs/candidates.png" alt=""></a></div>
                     </div>
                     <div class="col-md-3">
                       <p><i class="ti-star"></i></p>
@@ -106,7 +106,7 @@
                       <p><span class="full-time">Full-Time</span></p>
                     </div>
                     <div class="col-md-3">
-                      <div class="can-img"><a href="#"><img src="assets/img/jobs/candidates.png" alt=""></a></div>
+                      <div class="can-img"><a href="#"><img src="portal/assets/img/jobs/candidates.png" alt=""></a></div>
                     </div>
                     <div class="col-md-3">
                       <p><i class="ti-star"></i></p>

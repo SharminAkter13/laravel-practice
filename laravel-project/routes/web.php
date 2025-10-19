@@ -26,15 +26,70 @@ Route::get('/master', function () {
     return view('master');
 });
 
+
+// Portal Pages
 Route::get('/', function () {
     return view('portal_pages.home');
-});
+})->name('home');
+
+Route::get('/add-resume', function () {
+    return view('portal_pages.candidates.add_resume');
+})->name('add-resume');
+
+Route::get('/browse-categories', function () {
+    return view('portal_pages.candidates.browse_categories');
+})->name('browse-categories');
+
+Route::get('/browse-jobs', function () {
+    return view('portal_pages.candidates.browse_jobs');
+})->name('browse-jobs');
+
+Route::get('/job-alert', function () {
+    return view('portal_pages.candidates.job_alert');
+})->name('job-alert');
+
+Route::get('/manage-resume', function () {
+    return view('portal_pages.candidates.manage_resume');
+})->name('manage-resume');
+
+Route::get('/add-job', function () {
+    return view('portal_pages.employers.add_job');
+})->name('add-job');
+
+Route::get('/browse-resume', function () {
+    return view('portal_pages.employers.browse_resume');
+})->name('browse-resume');
+
+Route::get('/manage-application', function () {
+    return view('portal_pages.employers.manage_application');
+})->name('manage-application');
+
+Route::get('/manage-job', function () {
+    return view('portal_pages.employers.manage_job');
+})->name('manage-job');
+
+// My Account
+Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
+
+// Route::get('/my-account/login', fn() => view('auth.my_account'))->name('login.show');
+// Route::get('/my-account/register', fn() => view('auth.my_account'))->name('register.show');
+
+// Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
+// Route::post('/register', [AuthController::class, 'register'])->name('register.perform');
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout.perform');
+
+// Route::get('/password/reset', [AuthController::class, 'showPasswordResetForm'])->name('password.request');
+// Route::post('/password/email', [AuthController::class, 'sendResetLink'])->name('password.email');
 
 
+Route::get('/post-job', function () {
+    return view('portal_pages.post_job');
+})->name('post-job');
 
-Route::get('/dashboard', [HomeController::class, 'index']);
+
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/my-account', [AuthController::class, 'index']);
+Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
 
 
 // """"""",,,,,,""""' Categories"""""",,,,,"""""""
@@ -81,7 +136,7 @@ Route::put('/jobs/{job}', [JobController::class, 'update'])->name('jobs.update')
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
 
 
-// ---------------- Candidates ----------------
+// ---------------- candidates ----------------
 
 
 Route::get('candidates', [CandidateController::class, 'index'])->name('candidates.index');
