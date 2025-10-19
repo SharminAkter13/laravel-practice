@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::get('/master', function () {
     return view('master');
 });
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('portal_pages.home');
 });
 
@@ -33,7 +34,7 @@ Route::get('/home', function () {
 
 Route::get('/dashboard', [HomeController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/my-account', [AuthController::class, 'index']);
 
 
 // """"""",,,,,,""""' Categories"""""",,,,,"""""""
