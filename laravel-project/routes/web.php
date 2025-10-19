@@ -69,7 +69,13 @@ Route::get('/manage-job', function () {
 })->name('manage-job');
 
 // My Account
-Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
+
+
+Route::get('/my-account', function () {
+    return view('auth.my_account');
+})->name('my-account');
+
+// Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
 
 // Route::get('/my-account/login', fn() => view('auth.my_account'))->name('login.show');
 // Route::get('/my-account/register', fn() => view('auth.my_account'))->name('register.show');
