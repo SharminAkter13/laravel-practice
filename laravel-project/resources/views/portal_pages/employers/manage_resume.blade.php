@@ -32,7 +32,7 @@
                 <h3 class="alerts-title">Manage Resumes</h3>
                 <div class="manager-resumes-item">
                   <div class="manager-content">
-                    <a href="resume.html"><img class="resume-thumb" src="assets/img/jobs/avatar.jpg" alt=""></a>
+                    <a href="resume.html"><img class="resume-thumb" src="portal/assets/img/jobs/avatar.jpg" alt=""></a>
                     <div class="manager-info">
                       <div class="manager-name">
                         <h4><a href="#">John Doe</a></h4>
@@ -57,7 +57,7 @@
                 </div>     
                 <div class="manager-resumes-item">
                   <div class="manager-content">
-                    <a href="resume.html"><img class="resume-thumb" src="assets/img/jobs/avatar.jpg" alt=""></a>
+                    <a href="resume.html"><img class="resume-thumb" src="portal/assets/img/jobs/avatar.jpg" alt=""></a>
                     <div class="manager-info">
                       <div class="manager-name">
                         <h4><a href="#">John Doe</a></h4>
@@ -82,7 +82,7 @@
                 </div>  
                 <div class="manager-resumes-item">
                   <div class="manager-content">
-                    <a href="resume.html"><img class="resume-thumb" src="assets/img/jobs/avatar.jpg" alt=""></a>
+                    <a href="resume.html"><img class="resume-thumb" src="portal/assets/img/jobs/avatar.jpg" alt=""></a>
                     <div class="manager-info">
                       <div class="manager-name">
                         <h4><a href="#">John Doe</a></h4>
@@ -107,7 +107,7 @@
                 </div>  
                 <div class="manager-resumes-item">
                   <div class="manager-content">
-                    <a href="resume.html"><img class="resume-thumb" src="assets/img/jobs/avatar.jpg" alt=""></a>
+                    <a href="resume.html"><img class="resume-thumb" src="portal/assets/img/jobs/avatar.jpg" alt=""></a>
                     <div class="manager-info">
                       <div class="manager-name">
                         <h4><a href="#">John Doe</a></h4>

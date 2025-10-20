@@ -1,144 +1,114 @@
-@extends('master')
+@extends('main')
 
 @section('content')
-<!-- Page Header Start -->
-<div class="page-header" style="background-image: url('assets/img/banner1.jpg');">
-<div class="container">
-    <div class="row">         
-      <div class="col-md-12">
-        <div class="breadcrumb-wrapper">
-          <h2 class="product-title">My Account</h2>
-          <ol class="breadcrumb">
-            <li><a href="{{ url('/') }}"><i class="ti-home"></i> Home</a></li>
-            <li class="current">My Account</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Page Header End -->
-
-<div id="content" class="my-account">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-sm-8 cd-user-modal">  
-        <div class="my-account-form">
-          <ul class="cd-switcher">
-            <li><a class="{{ request()->routeIs('login') ? 'selected' : '' }}" href="{{ route('login') }}">LOGIN</a></li>
-            <li><a class="{{ request()->routeIs('register') ? 'selected' : '' }}" href="{{ route('register') }}">REGISTER</a></li>
-          </ul>
-
-          {{-- Login Form --}}
-          @if(request()->routeIs('login'))
-          <div id="cd-login" class="is-selected">
-            <div class="page-login-form">
-              <form method="POST" action="{{ route('login') }}" class="login-form" role="form">
-                @csrf
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-user"></i>
-                    <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="Email" required autofocus>
-                  </div>
-                  @error('email')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
-                </div> 
-
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-lock"></i>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
-                  </div>
-                  @error('password')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
-                </div> 
-
-                <button class="btn btn-common log-btn" type="submit">Login</button>
-
-                <div class="checkbox-item">
-                  <div class="checkbox">
-                    <label for="rememberme" class="rememberme">
-                      <input name="remember" id="rememberme" type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                    </label>
-                  </div>                        
-                  <p class="cd-form-bottom-message"><a href="{{ route('password.request') }}">Lost your password?</a></p>
-                </div> 
-              </form>
+ <!-- Page Header Start -->
+      <div class="page-header" style="background: url(portal/assets/img/banner1.jpg);">
+        <div class="container">
+          <div class="row">         
+            <div class="col-md-12">
+              <div class="breadcrumb-wrapper">
+                <h2 class="product-title">My Account</h2>
+                <ol class="breadcrumb">
+                  <li><a href="#"><i class="ti-home"></i> Home</a></li>
+                  <li class="current">My Account</li>
+                </ol>
+              </div>
             </div>
           </div>
-          @endif
+        </div>
+      </div>
+      <!-- Page Header End -->   
 
-          {{-- Register Form --}}
-          @if(request()->routeIs('register'))
-          <div id="cd-signup" class="is-selected">
-            <div class="page-login-form register">
-              <form method="POST" action="{{ route('register') }}" class="login-form" role="form">
-                @csrf
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-user"></i>
-                    <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Username" required autofocus>
-                  </div>
-                  @error('name')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
-                </div> 
-
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-email"></i>
-                    <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="Email" required>
-                  </div>
-                  @error('email')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
-                </div> 
-
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-lock"></i>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
-                  </div>
-                  @error('password')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
-                </div> 
-
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="ti-lock"></i>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="Repeat Password" required>
+      <div id="content" class="my-account">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-6 cd-user-modal">  
+              <div class="my-account-form">
+                <ul class="cd-switcher">
+                  <li><a class="selected" href="#0">LOGIN</a></li>
+                  <li><a href="#0">REGITER</a></li>
+                </ul>
+                <!-- Login -->
+                <div id="cd-login" class="is-selected">
+                  <div class="page-login-form">
+                    <form role="form" class="login-form">
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-user"></i>
+                          <input type="text" id="sender-email" class="form-control" name="email" placeholder="Username">
+                        </div>
+                      </div> 
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-lock"></i>
+                          <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                      </div> 
+                      <a href="/dashboard">
+                      <button class="btn btn-common log-btn">Login</button>
+                      </a>
+                      <div class="checkbox-item">
+                        <div class="checkbox">
+                          <label for="rememberme" class="rememberme">
+                          <input name="rememberme" id="rememberme" value="forever" type="checkbox"> Remember Me</label>
+                        </div>                        
+                        <p class="cd-form-bottom-message"><a href="#0">Lost your password?</a></p>
+                      </div> 
+                    </form>
                   </div>
                 </div>
 
-                {{-- Role Selection if you want users to choose role on registration --}}
-                <div class="form-group">
-                  <label for="role_id">Select Role</label>
-                  <select name="role_id" id="role_id" class="form-control @error('role_id') is-invalid @enderror" required>
-                    <option value="">-- Choose Role --</option>
-                    @foreach(\App\Models\Role::all() as $role)
-                      <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : '' }}>
-                        {{ $role->name }}
-                      </option>
-                    @endforeach
-                  </select>
-                  @error('role_id')
-                    <span class="text-danger small">{{ $message }}</span>
-                  @enderror
+                <!-- Register -->
+                <div id="cd-signup">
+                  <div class="page-login-form register">
+                    <form role="form" class="login-form">
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-user"></i>
+                          <input type="text" id="sender-email" class="form-control" name="name" placeholder="Username">
+                        </div>
+                      </div> 
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-email"></i>
+                          <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                        </div>
+                      </div> 
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-lock"></i>
+                          <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                      </div> 
+                      <div class="form-group">
+                        <div class="input-icon">
+                          <i class="ti-lock"></i>
+                          <input type="password" class="form-control" placeholder="Repeat Password">
+                        </div>
+                      </div>
+                      <button class="btn btn-common log-btn">Register</button> 
+                    </form>
+                  </div>
                 </div>
-
-                <button class="btn btn-common log-btn" type="submit">Register</button> 
-              </form>
+                <div class="page-login-form" id="cd-reset-password"> <!-- reset password form -->
+                  <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+                  <form class="cd-form">
+                    <div class="form-group">
+                      <div class="input-icon">
+                        <i class="ti-email"></i>
+                        <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                      </div>
+                    </div> 
+                    <p class="fieldset">
+                      <button class="btn btn-common log-btn" type="submit">Reset password</button> 
+                    </p>
+                  </form>
+                  <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+                </div> <!-- cd-reset-password -->
+              </div>
             </div>
           </div>
-          @endif
-
-          {{-- Reset Password - You can create a separate page or modal for this --}}
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-@endsection
+      </div>   
+      
+      @endsection

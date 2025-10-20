@@ -10,7 +10,7 @@
           <div class="col-md-9 col-md-offset-2">
             <div class="page-ads box">
               <div class="post-header">
-                <p>Already have an account? <a href="my-account.html">Click here to login</a></p>
+                <p>Already have an account? <a href="/my-account">Click here to login</a></p>
               </div>
               <form class="form-ad">
                 <div class="divider"><h3>Basic information</h3></div>
