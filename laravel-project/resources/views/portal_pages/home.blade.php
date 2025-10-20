@@ -1,8 +1,8 @@
 @extends('main')
 @section('content')
 
-<div class="search-container" style="position: relative; background-image: url('{{ asset('portal/assets/img/bg/bg-intro.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4);"></div>
+<div class="search-container mt-5 p-8" style="position: relative; background-image: url('{{ asset('portal/assets/img/bg/bg-intro.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.51);"></div>
      
         <div class="container" style="position: relative; z-index: 2;">
 

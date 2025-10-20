@@ -110,11 +110,12 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link {{ request()->is('job-skill*') ? 'active' : '' }}" href="{{ url('/job-skill') }}">
-            <i class="ni ni-hat-3 text-info"></i> Job Skills
-          </a>
-        </li>
+       <li class="nav-item">
+        <a class="nav-link {{ request()->is('job-alerts*') ? 'active' : '' }}" href="{{ url('/job-alerts') }}">
+          <i class="ni ni-hat-3 text-info"></i> Job Alert
+        </a>
+      </li>
+
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('interviews*') ? 'active' : '' }}" href="{{ url('/interviews') }}">

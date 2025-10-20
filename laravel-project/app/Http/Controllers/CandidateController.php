@@ -44,7 +44,7 @@ class CandidateController extends Controller
         // Create Candidate profile
         $user->candidate()->create($request->only(['resume','phone','address']));
 
-        return redirect()->route('pages.candidates.index')->with('success', 'Candidate created successfully!');
+        return redirect()->route('candidates.index')->with('success', 'Candidate created successfully!');
     }
 
     public function edit(Candidate $candidate)
@@ -71,12 +71,12 @@ class CandidateController extends Controller
         // Update Candidate profile
         $candidate->update($request->only(['resume','phone','address']));
 
-        return redirect()->route('pages.candidates.index')->with('success', 'Candidate updated successfully!');
+        return redirect()->route('candidates.index')->with('success', 'Candidate updated successfully!');
     }
 
     public function destroy(Candidate $candidate)
     {
         $candidate->user()->delete(); // deletes candidate as well due to cascade
-        return redirect()->route('pages.candidates.index')->with('success', 'Candidate deleted successfully!');
+        return redirect()->route('candidates.index')->with('success', 'Candidate deleted successfully!');
     }
 }

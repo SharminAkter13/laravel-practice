@@ -47,7 +47,7 @@ class JobController extends Controller
         }
 
         Job::create($data);
-        return redirect()->route('pages.jobs.index')->with('success', 'Job created successfully.');
+        return redirect()->route('jobs.index')->with('success', 'Job created successfully.');
     }
 
     public function edit(Job $job)
@@ -85,7 +85,7 @@ class JobController extends Controller
         }
 
         $job->update($data);
-        return redirect()->route('pages.jobs.index')->with('success', 'Job updated successfully.');
+        return redirect()->route('jobs.index')->with('success', 'Job updated successfully.');
     }
 
     public function destroy(Job $job)
@@ -94,6 +94,6 @@ class JobController extends Controller
             Storage::disk('public')->delete($job->cover_image);
         }
         $job->delete();
-        return redirect()->route('pages.jobs.index')->with('success', 'Job deleted successfully.');
+        return redirect()->route('jobs.index')->with('success', 'Job deleted successfully.');
     }
 }

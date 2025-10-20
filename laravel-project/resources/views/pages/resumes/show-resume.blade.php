@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
   <div class="card shadow-sm">
     <div class="card-header bg-info text-white">
       <h4>{{ $resume->name }}’s Resume</h4>

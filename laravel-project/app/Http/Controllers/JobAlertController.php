@@ -19,7 +19,7 @@ class JobAlertController extends Controller
                              ->orderBy('created_at', 'desc')
                              ->paginate(10);
 
-        return view('job_alerts.index', compact('jobAlerts'));
+        return view('pages.job_alerts.index', compact('jobAlerts'));
     }
 
     public function create()

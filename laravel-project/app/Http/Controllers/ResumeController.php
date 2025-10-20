@@ -95,14 +95,14 @@ public function store(Request $request)
         }
     }
 
-    return redirect()->route('resumes.index')->with('success', 'Resume created successfully!');
+    return redirect()->route('resumes.resume')->with('success', 'Resume created successfully!');
 }
 
     //  Show a single resume
     public function show($id)
     {
         $resume = Resume::with(['educations', 'experiences', 'skills'])->findOrFail($id);
-        return view('pages.resumes.show', compact('resume'));
+        return view('pages.resumes.show-resume', compact('resume'));
     }
 
     // ✏️ Edit form

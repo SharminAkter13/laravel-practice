@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\JobAlertController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -68,6 +69,14 @@ Route::get('/manage-job', function () {
     return view('portal_pages.employers.manage_job');
 })->name('manage-job');
 
+Route::get('/about', function () {
+    return view('portal_pages.about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('portal_pages.contact');
+})->name('contact');
+
 // My Account
 
 
@@ -95,7 +104,7 @@ Route::get('/post-job', function () {
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
+// Route::get('/my-account', [AuthController::class, 'index'])->name('my-account');
 
 
 // """"""",,,,,,""""' Categories"""""",,,,,"""""""
@@ -162,3 +171,28 @@ Route::post('employers', [EmployerController::class, 'store'])->name('employers.
 Route::get('employers/{employer}/edit', [EmployerController::class, 'edit'])->name('employers.edit');
 Route::put('employers/{employer}', [EmployerController::class, 'update'])->name('employers.update');
 Route::delete('employers/{employer}', [EmployerController::class, 'destroy'])->name('employers.destroy');
+
+
+// """"""",,,, Job Alert ,,,"""""""
+
+    Route::middleware(['auth'])->group(function () {
+    
+    // List all job alerts
+    Route::get('/job_alerts', [JobAlertController::class, 'index'])->name('job_alerts.index');
+    
+    // Show create job alert form
+    Route::get('/job_alerts/create', [JobAlertController::class, 'create'])->name('job_alerts.create');
+    
+    // Store a new job alert
+    Route::post('/job_alerts', [JobAlertController::class, 'store'])->name('job_alerts.store');
+    
+    // Show edit form for a job alert
+    Route::get('/job_alerts/{jobAlert}/edit', [JobAlertController::class, 'edit'])->name('job_alerts.edit');
+    
+    // Update a job alert
+    Route::put('/job_alerts/{jobAlert}', [JobAlertController::class, 'update'])->name('job_alerts.update');
+    
+    // Delete a job alert
+    Route::delete('/job_alerts/{jobAlert}', [JobAlertController::class, 'destroy'])->name('job_alerts.destroy');
+
+});

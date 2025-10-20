@@ -60,10 +60,12 @@
               </li>
 
               <li>
-                <a href="#">My Account</a>
-                <ul class="dropdown">
-                  <li><a href="{{ route('my-account') }}">Login / Account</a></li>
-                </ul>
+                <a href="{{ route('about') }}"> About</a>
+                
+              </li>
+              <li>
+                <a href="{{ route('contact') }}"> Contact</a>
+                
               </li>
             </ul>
 

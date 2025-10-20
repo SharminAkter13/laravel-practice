@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('page')
-<div class="container mt-4">
+<div class="container mt-4 p-5">
     <div class="card shadow-sm">
         <div class="card-header bg-warning text-white">
             <h4 class="mb-0">Edit User</h4>

@@ -59,7 +59,7 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('pages.users.index')->with('success', 'User created successfully.');
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
     // Show edit form
@@ -90,7 +90,7 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->save();
 
-        return redirect()->route('pages.users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
     // Delete user
@@ -98,6 +98,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('pages.users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 }

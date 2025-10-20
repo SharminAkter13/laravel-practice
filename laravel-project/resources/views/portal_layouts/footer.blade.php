@@ -124,6 +124,45 @@
 <!-- Summernote JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Switch between login and register
+    $('.cd-switcher li a').click(function(e) {
+      e.preventDefault();
+
+      $('.cd-switcher a').removeClass('selected');
+      $(this).addClass('selected');
+
+      // Get the index of the clicked tab (0 for login, 1 for register)
+      var index = $(this).parent().index();
+
+      // Hide all forms
+      $('#cd-login, #cd-signup, #cd-reset-password').removeClass('is-selected');
+
+      // Show the form based on tab
+      if(index === 0){
+        $('#cd-login').addClass('is-selected');
+      } else if(index === 1){
+        $('#cd-signup').addClass('is-selected');
+      }
+    });
+
+    // Show reset password form
+    $('.cd-form-bottom-message a').click(function(e) {
+      e.preventDefault();
+      $('#cd-login, #cd-signup').removeClass('is-selected');
+      $('#cd-reset-password').addClass('is-selected');
+    });
+
+    // Back to login from reset password
+    $('#cd-reset-password .cd-form-bottom-message a').click(function(e) {
+      e.preventDefault();
+      $('#cd-reset-password').removeClass('is-selected');
+      $('#cd-login').addClass('is-selected');
+    });
+  });
+</script>
+
 
 </body>
 </html>

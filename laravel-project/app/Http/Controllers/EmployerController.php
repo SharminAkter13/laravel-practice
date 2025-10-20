@@ -45,7 +45,7 @@ class EmployerController extends Controller
         // Create Employer profile
         $user->employer()->create($request->only(['company_name','website','phone','address']));
 
-        return redirect()->route('pages.employers.index')->with('success', 'Employer created successfully!');
+        return redirect()->route('employers.index')->with('success', 'Employer created successfully!');
     }
 
     public function edit(Employer $employer)
@@ -73,12 +73,12 @@ class EmployerController extends Controller
         // Update Employer profile
         $employer->update($request->only(['company_name','website','phone','address']));
 
-        return redirect()->route('pages.employers.index')->with('success', 'Employer updated successfully!');
+        return redirect()->route('employers.index')->with('success', 'Employer updated successfully!');
     }
 
     public function destroy(Employer $employer)
     {
         $employer->user()->delete(); // deletes employer profile too
-        return redirect()->route('pages.employers.index')->with('success', 'Employer deleted successfully!');
+        return redirect()->route('employers.index')->with('success', 'Employer deleted successfully!');
     }
 }
