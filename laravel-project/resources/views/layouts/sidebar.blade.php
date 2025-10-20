@@ -7,14 +7,16 @@
     </button>
 
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="{{ url('/home') }}">
-      <img src="{{ asset('assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="Logo">
+    <a class="navbar-brand pt-2 fw-bold text-danger fs-4" href="{{ url('/home') }}">
+      <img src="{{ asset('assets/img/brand/favicon.ico') }}" class="navbar-brand-img" alt="Logo">
+      <span >TalentStream</span>
     </a>
 
     <!-- User (Mobile Only) -->
     <ul class="nav align-items-center d-md-none">
+      <!-- Notifications -->
       <li class="nav-item dropdown">
-        <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link nav-link-icon" href="#" data-toggle="dropdown">
           <i class="ni ni-bell-55"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -25,8 +27,9 @@
         </div>
       </li>
 
+      <!-- Profile -->
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="#" data-toggle="dropdown">
           <div class="media align-items-center">
             <span class="avatar avatar-sm rounded-circle">
               <img alt="User" src="{{ asset('assets/img/theme/team-1-800x800.jpg') }}">
@@ -37,7 +40,7 @@
           <div class="dropdown-header noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </div>
-          <a href="{{ url('/profile') }}" class="dropdown-item"><i class="ni ni-single-02"></i> <span>My profile</span></a>
+          <a href="{{ url('/profile') }}" class="dropdown-item"><i class="ni ni-single-02"></i> <span>My Profile</span></a>
           <a href="{{ url('/settings') }}" class="dropdown-item"><i class="ni ni-settings-gear-65"></i> <span>Settings</span></a>
           <div class="dropdown-divider"></div>
           <a href="{{ url('/logout') }}" class="dropdown-item"><i class="ni ni-user-run"></i> <span>Logout</span></a>
@@ -68,6 +71,7 @@
 
       <!-- Navigation -->
       <ul class="navbar-nav">
+
         <li class="nav-item">
           <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ url('/dashboard') }}">
             <i class="ni ni-tv-2 text-primary"></i> Dashboard
@@ -75,83 +79,72 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ url('/users') }}">
-            <i class="ni ni-planet text-blue"></i> User
+          <a class="nav-link {{ request()->is('users*') ? 'active' : '' }}" href="{{ url('/users') }}">
+            <i class="ni ni-circle-08 text-blue"></i> Users
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('category*') ? 'active' : '' }}" href="{{ url('/categories') }}">
-            <i class="ni ni-pin-3 text-orange"></i> Category
+          <a class="nav-link {{ request()->is('categories*') ? 'active' : '' }}" href="{{ url('/categories') }}">
+            <i class="ni ni-bullet-list-67 text-orange"></i> Categories
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('candidates*') ? 'active' : '' }}" href="{{ url('/candidates') }}">
-            <i class="ni ni-single-02 text-yellow"></i> Candidates
+            <i class="ni ni-hat-3 text-yellow"></i> Candidates
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('employeer*') ? 'active' : '' }}" href="{{ url('/employers') }}">
-            <i class="ni ni-single-02 text-yellow"></i> Employers
+          <a class="nav-link {{ request()->is('employers*') ? 'active' : '' }}" href="{{ url('/employers') }}">
+            <i class="ni ni-briefcase-24 text-teal"></i> Employers
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('resumes*') ? 'active' : '' }}" href="{{ url('/resumes') }}">
-            <i class="ni ni-single-02 text-yellow"></i> Resume
+            <i class="ni ni-folder-17 text-indigo"></i> Resumes
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('job*') ? 'active' : '' }}" href="{{ url('/jobs') }}">
-            <i class="ni ni-briefcase-24 text-green"></i> Job
+          <a class="nav-link {{ request()->is('jobs*') ? 'active' : '' }}" href="{{ url('/jobs') }}">
+            <i class="ni ni-briefcase-24 text-green"></i> Jobs
           </a>
         </li>
 
-       <li class="nav-item">
-        <a class="nav-link {{ request()->is('job-alerts*') ? 'active' : '' }}" href="{{ url('/job-alerts') }}">
-          <i class="ni ni-hat-3 text-info"></i> Job Alert
-        </a>
-      </li>
-
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('job-alerts*') ? 'active' : '' }}" href="{{ url('/job-alerts') }}">
+            <i class="ni ni-bell-55 text-info"></i> Job Alerts
+          </a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('interviews*') ? 'active' : '' }}" href="{{ url('/interviews') }}">
-            <i class="ni ni-chat-round text-purple"></i> Interviews
-          </a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link {{ request()->is('interviews*') ? 'active' : '' }}" href="{{ url('/interviews') }}">
-            <i class="ni ni-chat-round text-purple"></i> Interviews
-          </a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link {{ request()->is('interviews*') ? 'active' : '' }}" href="{{ url('/interviews') }}">
-            <i class="ni ni-chat-round text-purple"></i> Interviews
+            <i class="ni ni-calendar-grid-58 text-purple"></i> Interviews
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('profile*') ? 'active' : '' }}" href="{{ url('/profile') }}">
-            <i class="ni ni-single-02 text-yellow"></i> User Profile
+            <i class="ni ni-single-02 text-pink"></i> User Profile
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="{{ url('/login') }}">
-            <i class="ni ni-key-25 text-info"></i> Login
+            <i class="ni ni-key-25 text-dark"></i> Login
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {{ request()->is('register') ? 'active' : '' }}" href="{{ url('/register') }}">
-            <i class="ni ni-circle-08 text-pink"></i> Register
+            <i class="ni ni-circle-08 text-primary"></i> Register
           </a>
         </li>
-      </ul>
 
+      </ul>
     </div>
   </div>
 </nav>

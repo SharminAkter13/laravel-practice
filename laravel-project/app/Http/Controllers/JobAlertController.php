@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobAlert;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class JobAlertController extends Controller
 {
+     use AuthorizesRequests;
     public function __construct()
     {
         $this->middleware('auth');

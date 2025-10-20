@@ -2,7 +2,7 @@
 @section('page')
 <div class="container mt-4 p-5">
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center fw-bold">
             <span>Candidate Information</span>
             <a href="{{ route('candidates.create') }}" class="btn btn-primary btn-sm">Add Candidate</a>
         </div>

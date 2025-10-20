@@ -11,9 +11,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand logo" href="{{ route('home') }}">
-              <img src="{{ asset('portal/assets/img/logo.png') }}" alt="TalentStream Logo">
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+                <img src="{{ asset('portal/assets/img/favicon.ico') }}" alt="TalentStream Logo" style="height: 30px; width: 30px;">
+                <span class="ms-2 fw-bold text-dark">TalentStream</span>
             </a>
+
           </div>
 
           <div class="collapse navbar-collapse" id="navbar">

@@ -86,6 +86,7 @@
                           <input type="password" class="form-control" placeholder="Repeat Password">
                         </div>
                       </div>
+                      
                       <button class="btn btn-common log-btn">Register</button> 
                     </form>
                   </div>
