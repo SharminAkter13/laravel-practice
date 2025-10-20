@@ -53,7 +53,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Jobs</h5>
                       <span class="h2 font-weight-bold mb-0">924</span>
                     </div>
                     <div class="col-auto">
@@ -74,7 +74,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Candidates</h5>
                       <span class="h2 font-weight-bold mb-0">49,65%</span>
                     </div>
                     <div class="col-auto">
@@ -102,7 +102,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                  <h2 class="text-white mb-0">Sales value</h2>
+                  <h2 class="text-white mb-0">Jobs Overview</h2>
                 </div>
                 <div class="col">
                   <ul class="nav nav-pills justify-content-end">
@@ -137,7 +137,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                  <h2 class="mb-0">Total orders</h2>
+                  <h2 class="mb-0">Total Applications</h2>
                 </div>
               </div>
             </div>
@@ -177,7 +177,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">
-                      /argon/
+                      /TalentStream/
                     </th>
                     <td>
                       4,569
@@ -191,7 +191,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/index.html
+                      Users
                     </th>
                     <td>
                       3,985
@@ -205,7 +205,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/charts.html
+                    Candidates
                     </th>
                     <td>
                       3,513
@@ -219,7 +219,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/tables.html
+                     Employers
                     </th>
                     <td>
                       2,050
@@ -233,7 +233,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      /argon/profile.html
+                     Applications
                     </th>
                     <td>
                       1,795
