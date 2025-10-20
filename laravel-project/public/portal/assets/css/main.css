@@ -667,6 +667,25 @@ a:focus {
 .slicknav_menu {
   display: none;
 }
+/* extra css for logo */
+.navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 10px!important;
+  padding-right: 25px!important;
+}
+
+.navbar-brand .logo-img {
+  height: 30px;
+  width: 30px;
+}
+
+.navbar-brand h2 {
+  margin: 0;
+  font-size: 2rem;
+  color:red;
+}
+
 @media screen and (max-width: 767px) {
   .navbar-brand {
     position: absolute;

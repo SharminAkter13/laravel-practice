@@ -11,10 +11,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-                <img src="{{ asset('portal/assets/img/favicon.ico') }}" alt="TalentStream Logo" style="height: 30px; width: 30px;">
-                <span class="ms-2 fw-bold text-dark">TalentStream</span>
+            <a class="navbar-brand d-flex align-items-center mt-2" href="{{ route('home') }}">
+              <img src="{{ asset('portal/assets/img/favicon.ico') }}" alt="TalentStream Logo" class="me-2 logo-img">
+              <h2 class="fw-bold text-dark mb-0">TalentStream</h2>
             </a>
+
+
 
           </div>
 
